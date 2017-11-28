@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Scripts/game.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Player1.gd" type="Script" id=2]
+[ext_resource path="res://Art/Player1-Sprite.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Player2.gd" type="Script" id=4]
+[ext_resource path="res://Art/Player2-Sprite.png" type="Texture" id=5]
+[ext_resource path="res://Art/Floor.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.3789, 11.2211 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="game" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Player1" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 300, 150 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 8.09717, 2.21606, -0.992889 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 2 )
+Player_speed = 200
+
+[node name="Player1_Sprite" type="Sprite" parent="Player1"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1"]
+
+transform/pos = Vector2( 2.21606, -0.992889 )
+transform/scale = Vector2( 1, 8.09717 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Player2" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 119.391, 462.465 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 8.09717, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 4 )
+Player_speed = 200
+Player_jump_height = 200
+
+[node name="Player2_Sprite" type="Sprite" parent="Player2"]
+
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+
+transform/scale = Vector2( 1, 8.09717 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Ground" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 338, 567 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 58.8536, 0, 0, 4.8583, 206.952, -281.012 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 1 )
+shapes/1/transform = Matrix32( 58.8536, 0, 0, 4.8583, 188.116, 50.2899 )
+shapes/1/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="Floor" type="TextureFrame" parent="Ground"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -341.0
+margin/top = -329.0
+margin/right = 686.0
+margin/bottom = -232.0
+texture = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Floor4" type="TextureFrame" parent="Ground"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -337.0
+margin/top = 1.0
+margin/right = 685.0
+margin/bottom = 98.0
+texture = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+
+transform/pos = Vector2( 206.952, -281.012 )
+transform/scale = Vector2( 58.8536, 4.8583 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Ground"]
+
+transform/pos = Vector2( 188.116, 50.2899 )
+transform/scale = Vector2( 58.8536, 4.8583 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 1
+
+

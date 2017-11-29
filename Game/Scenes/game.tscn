@@ -7,12 +7,12 @@
 [ext_resource path="res://Art/Player2-Sprite.png" type="Texture" id=5]
 [ext_resource path="res://Art/Floor.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 31.3789, 11.2211 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -25,7 +25,7 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 300, 150 )
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 8.09717, 2.21606, -0.992889 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -56,7 +56,7 @@ texture = ExtResource( 3 )
 
 transform/pos = Vector2( 2.21606, -0.992889 )
 transform/scale = Vector2( 1, 8.09717 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -64,7 +64,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 119.391, 462.465 )
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 8.09717, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -95,7 +95,7 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
 
 transform/scale = Vector2( 1, 8.09717 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -103,10 +103,10 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 338, 567 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 58.8536, 0, 0, 4.8583, 206.952, -281.012 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 1 )
+shapes/1/shape = SubResource( 2 )
 shapes/1/transform = Matrix32( 58.8536, 0, 0, 4.8583, 188.116, 50.2899 )
 shapes/1/trigger = false
 collision/layers = 1
@@ -143,7 +143,7 @@ stretch_mode = 2
 
 transform/pos = Vector2( 206.952, -281.012 )
 transform/scale = Vector2( 58.8536, 4.8583 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -151,7 +151,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 188.116, 50.2899 )
 transform/scale = Vector2( 58.8536, 4.8583 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 1
 

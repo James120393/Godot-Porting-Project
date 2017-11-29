@@ -86,7 +86,7 @@ trigger = false
 transform/pos = Vector2( 50, 200 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 1310, 300, 60, 60 )
+region_rect = Rect2( 1315, 315, 60, 60 )
 
 [node name="StaticBodyCoffee" type="StaticBody2D" parent="Coffee-container"]
 

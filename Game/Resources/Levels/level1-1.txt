@@ -1,0 +1,47 @@
+; Copy value from heap without existing pointer.
+
+; Level Settings
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Help Addy put a cup of coffee on a customer's table. ; instructions
+A ; console target
+
+; Initial Layout
+--       x        --
+--                --
+--                --
+--                --
+-- &              --
+--++++++.++.++++++--
+--      ▔         --
+-- *              --
+---------A----------
+1 ; number of links
+8 3 9 8 ; source xy, target xy (lower left origin)
+
+; Target Layout
+--       A        --
+--                --
+--                --
+--                --
+--                --
+--++++++.++.++++++--
+--      ▔         --
+--                --
+---------?----------
+0 ; number of links
+
+; Player Settings
+addy pointerTool ; addy's available tools
+val valueTool ; val's available tools
+par 4 ; maximum number of actions required for full reward
+
+; Solution Code
+begin
+addy = p;
+q = addy;
+val = 'A';
+*q = val;
+end

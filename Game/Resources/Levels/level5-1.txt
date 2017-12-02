@@ -1,0 +1,56 @@
+﻿; Create a table and put Coffee on it
+; 1. Addy uses the malloc tool to create a table
+; 2. Addy assigns the table to the pointer
+; 2. Val copies value to table pointed to by the pointer
+; // initial code
+; char *p;
+; // solution code
+; addy = new char[1];
+; p = addy;
+; val = 'A';
+; *p = val;
+
+; Header
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Set a table and put a cup of coffee on it.; instructions
+x ; console target
+
+; Initial Layout
+--                --
+--                --
+--                --
+--                --
+-- &              --
+--+++++.++++++++++--
+--                --
+-- *              --
+-------A------------
+0 ; number of initial links
+
+; Target Layout
+--                --
+--                --
+-- A              --
+--                --
+-- &              --
+--+++++.++++++++++--
+--                --
+-- *              --
+-------A------------
+0 ; number links
+par 4
+
+addy mallocTool
+val valueTool freeTool
+; Solution Code
+begin
+addy = new char[1];
+p = addy;
+val = 'A';
+*p = val;
+end
+
+heapArea 3 6 16 8

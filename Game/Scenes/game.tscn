@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Art/Tile_set.res" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Art/Player1-Sprite.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Player2.gd" type="Script" id=5]
 [ext_resource path="res://Art/Player2-Sprite.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/LevelLoad.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -127,5 +128,35 @@ input/pickable = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
+
+[node name="Debug level load" type="Polygon2D" parent="."]
+
+polygon = Vector2Array( 148.222, 20.3097, 148.222, 107.31, 862.222, 107.31, 862.222, 20.3097 )
+uv = Vector2Array(  )
+color = Color( 0.289063, 0.289063, 0.289063, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Debug text" type="RichTextLabel" parent="Debug level load"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 161.0
+margin/top = 31.0
+margin/right = 850.0
+margin/bottom = 96.0
+bbcode/enabled = true
+bbcode/bbcode = ""
+visible_characters = -1
+percent_visible = 1.0
+script/script = ExtResource( 7 )
 
 

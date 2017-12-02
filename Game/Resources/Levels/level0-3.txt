@@ -1,0 +1,48 @@
+; Copy two different values to stack (where one is blocked).
+
+; Level Settings
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Help place a cup of coffee and a piece of cake on the counter. ; instructions
+AB ; console target
+
+; Initial Layout
+--                --
+--                --
+--                --
+--                --
+-- &              --
+--+++++xx+++++++++--
+--      ▔         --
+-- *              --
+------A-B-----------
+0 ; number of links
+
+; Target Layout
+--                --
+--                --
+--                --
+--                --
+--                --
+--+++++AB+++++++++--
+--                --
+--                --
+------?-?-----------
+0 ; number of links
+
+; Player Settings
+addy valueTool ; addy's available tools
+val valueTool ; val's available tools
+par 6 ; maximum number of actions required for full reward
+
+; Solution Code
+begin
+val = 'B';
+a = val;
+addy = a;
+b = addy;
+val = 'A';
+a = val;
+end

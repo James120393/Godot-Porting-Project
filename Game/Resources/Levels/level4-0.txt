@@ -1,0 +1,43 @@
+﻿; Copy value in constant to a double pointer location in the heap.
+; 1. Val picks up constant A.
+; 2. Val dereferences double pointer to copy A to nested target.
+; // initial code
+; char **p = new char*[1];
+; *p = new char[1];
+; // solution code
+; (*p)[0] = 'A';
+
+; Header
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Pipes can be connected to other pipes, allowing food to travel indirectly to destination tables. Copy A to table. ; instructions
+A ; console target
+
+; Initial Layout
+--      . x       --
+--                --
+--                --
+--                --
+-- &              --
+--+++++.++++++++++--
+--                --
+-- *              --
+---------A----------
+2 ; number of initial links
+7 3 8 8
+8 8 10 8
+
+; Target Layout
+--      ? A       --
+--                --
+--                --
+--                --
+-- &              --
+--+++++.++++++++++--
+--                --
+-- *              --
+---------A----------
+0 ; number links
+par 2

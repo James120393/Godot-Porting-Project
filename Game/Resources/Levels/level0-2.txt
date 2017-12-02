@@ -1,0 +1,50 @@
+; Copy value from one stack variable to two other stack variables.
+
+; Level Settings
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Help Addy place three cups of coffee on the counter. ; instructions
+AAA ; console target
+
+; Initial Layout
+--                --
+--                --
+--                --
+--                --
+-- &              --
+--+++++xxx++++++++--
+--      ▔▔        --
+-- *              --
+-------A------------
+0 ; number of links
+
+; Target Layout
+--                --
+--                --
+--                --
+--                --
+--                --
+--+++++AAA++++++++--
+--                --
+--                --
+-------?------------
+0 ; number of links
+
+; Player Settings
+addy valueTool ; addy's available tools
+val valueTool ; val's available tools
+par 8 ; maximum number of actions required for full reward
+
+; Solution Code
+begin
+val = 'A';
+a = val
+b = a;
+addy = a;
+b = addy;
+c = b;
+addy = b;
+c = addy;
+end

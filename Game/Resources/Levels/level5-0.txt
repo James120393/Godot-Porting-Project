@@ -1,0 +1,53 @@
+﻿; Free table from the heap.
+; 1. Addy uses the pointer tool to copy a pointer
+; 2. Val frees the table pointed to by the pointer
+; // initial code
+; char *p = new char[1];
+; *p = 'A';
+; char *q;
+; // solution code
+; q = p;
+; delete[] q;
+
+; Header
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Addy now has a clear table tool which when used on a pipe's origin green square will remove a table from the restaurant. Val now has a set table tool which when used over the blue counter will allocate a new table and create a pipe to the new table. If the tool has a connected pipe and is used on a origin green square it will attach the pipe. Clear the table with the Coffee. ; instructions
+x ; console target
+
+; Initial Layout
+--      A         --
+--                --
+--                --
+--                --
+-- &              --
+--+++++.+.++++++++--
+--     ▔          --
+-- *              --
+--------------------
+1 ; number of initial links
+7 3 8 8
+
+; Target Layout
+--      /         --
+--                --
+--                --
+--                --
+-- &              --
+--+++++.+.++++++++--
+--     ▔          --
+-- *              --
+--------------------
+0 ; number links
+par 3
+
+addy pointerTool
+val freeTool
+; Solution Code
+begin
+addy = p;
+q = addy;
+delete[] q;
+end

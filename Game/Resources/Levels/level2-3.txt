@@ -1,0 +1,58 @@
+; Swap two values in heap using a temporary stack value.
+
+; Level Settings
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Your cafe challenge is now to swap the cup of coffee and the cake. ; instructions
+BA ; console target
+
+; Initial Layout
+--      A B       --
+--                --
+--                --
+--                --
+-- &              --
+--++++.+.+x+.++++++--
+--    ▔     ▔     --
+-- *              --
+--------------------
+2 ; number of links
+6 3 8 8 ; source xy, target xy (lower left origin)
+12 3 10 8
+
+; Target Layout
+--      B A       --
+--                --
+--                --
+--                --
+--                --
+--++++.+.+?+.+++++--
+--    ▔     ▔     --
+--                --
+--------------------
+0 ; number of links
+
+; Player Settings
+addy pointerTool ; addy's available tools
+val valueTool ; val's available tools
+par 14 ; maximum number of actions required for full reward
+
+; Solution Code
+begin
+addy = p;
+q = addy;
+val = *q;
+a = val;
+addy = r;
+q = addy;
+val = *q;
+addy = p;
+q = addy;
+*q = val;
+addy = r;
+q = addy;
+val = a;
+*q = val;
+end

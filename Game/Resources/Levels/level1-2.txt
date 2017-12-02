@@ -1,0 +1,52 @@
+; Copy two values from stack to heap using two pointers.
+
+; Level Settings
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Help Addy put a cup of coffee and a piece of cake on the customer's table. ; instructions
+AB ; console target
+
+; Initial Layout
+--      x x       --
+--                --
+--                --
+--                --
+-- &              --
+--++++.+.+.+.+++++--
+--    ▔     ▔     --
+-- *              --
+--------A-B---------
+2 ; number of links
+6 3 8 8 ; source xy, target xy (lower left origin)
+12 3 10 8
+
+; Target Layout
+--      A B       --
+--                --
+--                --
+--                --
+--                --
+--++++.+.+.+.+++++--
+--    ▔     ▔     --
+--                --
+--------?-?---------
+0 ; number of links
+
+; Player Settings
+addy pointerTool ; addy's available tools
+val valueTool ; val's available tools
+par 8 ; maximum number of actions required for full reward
+
+; Solution Code
+begin
+addy = p;
+q = addy;
+addy = s;
+r = addy;
+val = 'A';
+*q = val;
+val = 'B';
+*r = val;
+end

@@ -1,0 +1,46 @@
+; Copy value from one stack variable to another stack variable.
+
+; Level Settings
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+More customers have arrived! Help Val get one cup of coffee to Addy.\n\nWhen no one is looking, Addy uses magic (T key) to replicate the coffee to create more. ; instructions
+AA ; console target
+
+; Initial Layout
+--                --
+--                --
+--                --
+--                --
+-- &              --
+--+++++xx+++++++++--
+--      ▔         --
+-- *              --
+-------A------------
+0 ; number of links
+
+; Target Layout
+--                --
+--                --
+--                --
+--                --
+--                --
+--+++++AA+++++++++--
+--                --
+--                --
+-------?------------
+0 ; number of links
+
+; Player Settings
+addy valueTool ; addy's available tools
+val valueTool ; val's available tools
+par 4 ; maximum number of actions required for full reward
+
+; Solution Code
+begin
+val = 'A';
+a = val;
+addy = a;
+b = addy;
+end

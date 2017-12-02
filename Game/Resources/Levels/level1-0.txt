@@ -1,0 +1,45 @@
+; Copy value to heap using an existing pointer.
+
+; Level Settings
+20 ; width
+9 ; height
+10 ; camera x
+4.5 ; camera y
+Addy has a wrench tool to pick up a delivery pipe or attach a delivery pipe to a green square. Val can push or pull food through the pipe.\n\nFor this level, put a cup of coffee on the table. ; instructions
+A ; console target
+
+; Initial Layout
+--       x        --
+--                --
+--                --
+--                --
+-- &              --
+--+++++++.++++++++--
+--                --
+-- *              --
+---------A----------
+1 ; number of links
+9 3 9 8 ; source xy, target xy (lower left origin)
+
+; Target Layout
+--       A        --
+--                --
+--                --
+--                --
+--                --
+--+++++++.++++++++--
+--                --
+--                --
+---------?----------
+0 ; number of links
+
+; Player Settings
+addy pointerTool ; addy's available tools
+val valueTool ; val's available tools
+par 2 ; maximum number of actions required for full reward
+
+; Solution Code
+begin
+val = 'A';
+*p = val;
+end

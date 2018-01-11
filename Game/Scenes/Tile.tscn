@@ -1,12 +1,11 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Art/2d-sprite.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/CellMemory.gd" type="Script" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -32, 32, -32, -32, 32, -32, 32, 32 )
+points = Vector2Array( 32, -32, 32, 32, -32, 32, -32, -32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -18,26 +17,22 @@ points = Vector2Array( 32, -32, 32, 32, -32, 32, -32, -32 )
 custom_solver_bias = 0.0
 points = Vector2Array( 32, -32, 32, 32, -32, 32, -32, -32 )
 
-[sub_resource type="ConcavePolygonShape2D" id=4]
-
-custom_solver_bias = 0.0
-segments = Vector2Array( -32, -32, -32, 32, -32, 32, 32, 32, 32, 32, 32, -32, 32, -32, -32, -32, -32, -32, -32, -32 )
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Wall" type="Sprite" parent="."]
 
-transform/pos = Vector2( 50, 50 )
+transform/pos = Vector2( 35, 35 )
+transform/scale = Vector2( 1.16667, 1.16667 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 710, 100, 60, 60 )
 
 [node name="StaticBodyWall" type="StaticBody2D" parent="Wall"]
 
-transform/pos = Vector2( 9.53674e-07, 1.21454 )
-transform/scale = Vector2( 0.9375, 0.899546 )
+transform/pos = Vector2( 9.53674e-07, -9.53674e-07 )
+transform/scale = Vector2( 0.9375, 0.9375 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -47,16 +42,24 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionWall" type="CollisionPolygon2D" parent="Wall/StaticBodyWall"]
+[node name="PolygonWall" type="Polygon2D" parent="Wall/StaticBodyWall"]
 
-build_mode = 0
-polygon = Vector2Array( 32, 32, 32, -32, -32, -32, -32, 32 )
-shape_range = Vector2( 0, 0 )
-trigger = false
+polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
 
 [node name="Floor" type="Sprite" parent="."]
 
-transform/pos = Vector2( 210, 50 )
+transform/pos = Vector2( 175, 35 )
+transform/scale = Vector2( 1.16667, 1.16667 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 510, 100, 60, 60 )
@@ -74,25 +77,30 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script/script = ExtResource( 2 )
 
-[node name="CollisionFloor" type="CollisionPolygon2D" parent="Floor/StaticBodyFloor"]
+[node name="PolygonFloor" type="Polygon2D" parent="Floor/StaticBodyFloor"]
 
-build_mode = 0
 polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
-shape_range = Vector2( 0, 0 )
-trigger = false
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
 
 [node name="Coffee-container" type="Sprite" parent="."]
 
-transform/pos = Vector2( 50, 200 )
+transform/pos = Vector2( 30, 150 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 1315, 315, 60, 60 )
 
 [node name="StaticBodyCoffee" type="StaticBody2D" parent="Coffee-container"]
 
-transform/pos = Vector2( 9.53674e-07, -9.53674e-07 )
 transform/scale = Vector2( 0.9375, 0.9375 )
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
@@ -105,44 +113,16 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionCoffeeFloor" type="CollisionPolygon2D" parent="Coffee-container/StaticBodyCoffee"]
-
-build_mode = 0
-polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
-shape_range = Vector2( 0, 0 )
-trigger = false
-
 [node name="CoffeeContainerCollisionBox" type="Sprite" parent="."]
 
-transform/pos = Vector2( 210, 200 )
+transform/pos = Vector2( 180, 150 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 110, 100, 60, 60 )
 
-[node name="StaticBodyOverlap" type="StaticBody2D" parent="CoffeeContainerCollisionBox"]
-
-transform/scale = Vector2( 0.9375, 0.9375 )
-input/pickable = false
-shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = true
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionOverlap" type="CollisionPolygon2D" parent="CoffeeContainerCollisionBox/StaticBodyOverlap"]
-
-build_mode = 1
-polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32, -32, -32 )
-shape_range = Vector2( 0, 0 )
-trigger = true
-
 [node name="Background" type="Sprite" parent="."]
 
-transform/pos = Vector2( 350, 50 )
+transform/pos = Vector2( 330, 30 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 110, 100, 60, 60 )

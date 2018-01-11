@@ -7,6 +7,7 @@ const SPEED = 800.0
 var begin = Vector2()
 var end = Vector2()
 var path = []
+var CanPickUp = false
 
 func _ready():
 	#screen_size = get_viewport_rect().size
@@ -14,14 +15,13 @@ func _ready():
 	set_process_input(true)
 
 func _process(delta):
-	var CanPickUp = false
 	
 	#var tile_pos = TileMap.world_to_map(global_pos)
 	#var cell = TileMap.get_cellv(tile_pos)
 	#var cell_pos = cell.get_pos()
 	var Player1_pos = get_node("Player1").get_pos() 
 	var Player2_pos = get_node("Player2").get_pos()
-		
+	var Collision = get_node("Area2D")
 	#if (cell == 4): # thetilesets tile id
 	#	tilemap.set_cellv(tile_pos, 4)
 	
@@ -51,8 +51,13 @@ func _process(delta):
 			path = []
 			set_process(false)
 			_Change_Player_Sprite()
+			#if (Colision.area_enter(area:Area2D)):
+			#	set_process(true)
+			#else:
+			#	set_process(false)
 	else:
 		set_process(false)
+		
 
 func _On_Pickup_Button_Pressed():
 	return

@@ -51,10 +51,9 @@ func _process(delta):
 			path = []
 			set_process(false)
 			_Change_Player_Sprite()
-			#if (Colision.area_enter(area:Area2D)):
-			#	set_process(true)
-			#else:
-			#	set_process(false)
+			get_node("Player2").addCoffee()												#add coffee to player 2
+			print (str(get_node("Player2").coffee))
+			
 	else:
 		set_process(false)
 		

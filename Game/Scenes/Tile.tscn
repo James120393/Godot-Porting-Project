@@ -18,10 +18,10 @@ points = Vector2Array( 32, -32, 32, 32, -32, 32, -32, -32 )
 custom_solver_bias = 0.0
 points = Vector2Array( 32, -32, 32, 32, -32, 32, -32, -32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConcavePolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32, -32, -32 )
+segments = Vector2Array( -32, -32, -32, 32, -32, 32, 32, 32, 32, 32, 32, -32, 32, -32, -32, -32, -32, -32, -32, -32 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -34,8 +34,8 @@ region_rect = Rect2( 710, 100, 60, 60 )
 
 [node name="StaticBodyWall" type="StaticBody2D" parent="Wall"]
 
-transform/pos = Vector2( 9.53674e-07, -2.74181e-06 )
-transform/scale = Vector2( 0.9375, 0.9375 )
+transform/pos = Vector2( 9.53674e-07, 1.21454 )
+transform/scale = Vector2( 0.9375, 0.899546 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -135,7 +135,7 @@ bounce = 0.0
 
 [node name="CollisionOverlap" type="CollisionPolygon2D" parent="CoffeeContainerCollisionBox/StaticBodyOverlap"]
 
-build_mode = 0
+build_mode = 1
 polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32, -32, -32 )
 shape_range = Vector2( 0, 0 )
 trigger = true

@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Player2.gd" type="Script" id=5]
 [ext_resource path="res://Art/Player2-Sprite-Plate.png" type="Texture" id=6]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -17.843, -41.938, 12.157, -41.938, 12.157, 38.062, -17.843, 38.062, -17.843, -41.938 )
@@ -43,7 +43,7 @@ tile_data = IntArray( 65535, 0, 0, 0, 1, 3, 2, 3, 3, 3, 4, 3, 5, 3, 6, 3, 7, 3, 
 
 transform/pos = Vector2( 167.843, 351.938 )
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1

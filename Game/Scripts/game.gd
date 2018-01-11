@@ -51,6 +51,9 @@ func _process(delta):
 			path = []
 			set_process(false)
 			_Change_Player_Sprite()
+			get_node("Player2").addCoffee()												#add coffee to player 2
+			print (str(get_node("Player2").coffee))
+			
 	else:
 		set_process(false)
 

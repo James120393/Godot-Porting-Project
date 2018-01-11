@@ -8,18 +8,18 @@
 [ext_resource path="res://Scripts/Player2.gd" type="Script" id=6]
 [ext_resource path="res://Art/Player2-Sprite-Plate.png" type="Texture" id=7]
 
-[sub_resource type="NavigationPolygon" id=3]
+[sub_resource type="NavigationPolygon" id=1]
 
 vertices = Vector2Array( 1482.22, -1471.14, 1482.22, 178.923, -945.185, 178.923, -945.185, -1471.14 )
 polygons = [ IntArray( 0, 1, 2, 3 ) ]
 outlines = [ Vector2Array( -945.185, -1471.14, -945.185, 178.923, 1482.22, 178.923, 1482.22, -1471.14 ) ]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -17.843, -41.938, 12.157, -41.938, 12.157, 38.062, -17.843, 38.062, -17.843, -41.938 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -58,7 +58,7 @@ texture = ExtResource( 3 )
 visibility/visible = false
 transform/pos = Vector2( 380, 740 )
 transform/scale = Vector2( 0.5, 0.5 )
-navpoly = SubResource( 3 )
+navpoly = SubResource( 1 )
 enabled = true
 
 [node name="Coffee_Box_Player2" type="CollisionPolygon2D" parent="."]
@@ -74,7 +74,7 @@ trigger = true
 
 transform/pos = Vector2( 167.843, 351.938 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -113,7 +113,7 @@ trigger = false
 
 transform/pos = Vector2( 120.209, 649.901 )
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 2.03846, 0, 0, 4.43047, -7.00938, -0.587952 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -147,7 +147,7 @@ texture = ExtResource( 7 )
 
 transform/pos = Vector2( -7.00938, -0.587952 )
 transform/scale = Vector2( 2.03846, 4.43047 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 

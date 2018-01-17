@@ -1,36 +1,51 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Art/2d-sprite.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 22.8571, -31.9999, 39.9999, -24, 39.9999, 32, -39.9999, 32, -39.9999, -24, -22.8571, -31.9999 )
+points = Vector2Array( 12.5, -25, 37.5, -12.5, 37.5, 25, -37.5, 25, -37.5, -12.5, -12.5, -25 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 22.8571, -31.9999, 40, -24, 40, 32, -40, 32, -40, -24, -22.8571, -31.9999 )
+points = Vector2Array( 12.5, -25, 37.5, -12.5, 37.5, 25, -37.5, 25, -37.5, -12.5, -12.5, -25 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 21.3333, -32, 40, -24, 40, 32, -40, 32, -40, -24, -21.3333, -32 )
+points = Vector2Array( 12.5, -25, 37.5, -12.5, 37.5, 25, -37.5, 25, -37.5, -12.5, -12.5, -25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 15.625, -31.25, 46.875, -15.625, 46.875, 31.25, -46.875, 31.25, -46.875, -15.625, -15.625, -31.25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 15.625, -31.25, 46.875, -15.625, 46.875, 31.25, -46.875, 31.25, -46.875, -15.625, -15.625, -31.25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 15.625, -31.25, 46.875, -15.625, 46.875, 31.25, -46.875, 31.25, -46.875, -15.625, -15.625, -31.25 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Wall" type="Sprite" parent="."]
 
+visibility/light_mask = 0
 transform/pos = Vector2( 40, 40 )
-transform/scale = Vector2( 1.33333, 1.33333 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 710, 100, 60, 60 )
+region_rect = Rect2( 702, 101, 50, 50 )
 
 [node name="StaticBodyWall" type="StaticBody2D" parent="Wall"]
 
-transform/pos = Vector2( 1.43051e-06, -4.76837e-07 )
-transform/scale = Vector2( 0.9375, 0.9375 )
+transform/pos = Vector2( 0, 4.76837e-06 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 3.62396e-05, 4.00543e-05 )
@@ -46,24 +61,24 @@ bounce = 0.0
 
 transform/pos = Vector2( 3.62396e-05, 4.00543e-05 )
 build_mode = 0
-polygon = Vector2Array( -22.8571, -31.9999, -39.9999, -24, -39.9999, 32, 39.9999, 32, 39.9999, -24, 22.8571, -31.9999 )
+polygon = Vector2Array( -12.5, -25, -37.5, -12.5, -37.5, 25, 37.5, 25, 37.5, -12.5, 12.5, -25 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="Floor" type="Sprite" parent="."]
 
+visibility/light_mask = 0
 transform/pos = Vector2( 180, 40 )
-transform/scale = Vector2( 1.33333, 1.33333 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 510, 100, 60, 60 )
+region_rect = Rect2( 502, 101, 50, 50 )
 
 [node name="StaticBodyFloor" type="StaticBody2D" parent="Floor"]
 
-transform/scale = Vector2( 0.9375, 0.9375 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 4.57764e-05, 4.00543e-05 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -74,23 +89,22 @@ bounce = 0.0
 
 [node name="CollisionPolyFloor" type="CollisionPolygon2D" parent="Floor/StaticBodyFloor"]
 
-transform/pos = Vector2( 4.57764e-05, 4.00543e-05 )
 build_mode = 0
-polygon = Vector2Array( -22.8571, -31.9999, -40, -24, -40, 32, 40, 32, 40, -24, 22.8571, -31.9999 )
+polygon = Vector2Array( -12.5, -25, -37.5, -12.5, -37.5, 25, 37.5, 25, 37.5, -12.5, 12.5, -25 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="Coffee-container" type="Sprite" parent="."]
 
-transform/pos = Vector2( 40, 160 )
-transform/scale = Vector2( 1.33333, 1.33333 )
+visibility/light_mask = 0
+transform/pos = Vector2( 40, 140 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 1315, 315, 60, 60 )
+region_rect = Rect2( 1301, 301, 50, 50 )
 
 [node name="StaticBodyCoffee" type="StaticBody2D" parent="Coffee-container"]
 
-transform/scale = Vector2( 0.9375, 0.9375 )
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -105,24 +119,132 @@ bounce = 0.0
 [node name="CollisionPolyCoffee" type="CollisionPolygon2D" parent="Coffee-container/StaticBodyCoffee"]
 
 build_mode = 0
-polygon = Vector2Array( -21.3333, -32, -40, -24, -40, 32, 40, 32, 40, -24, 21.3333, -32 )
+polygon = Vector2Array( -12.5, -25, -37.5, -12.5, -37.5, 25, 37.5, 25, 37.5, -12.5, 12.5, -25 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
-[node name="CoffeeContainerCollisionBox" type="Sprite" parent="."]
+[node name="Empty-container" type="Sprite" parent="."]
 
-transform/pos = Vector2( 180, 160 )
-transform/scale = Vector2( 1.33333, 1.33333 )
+visibility/light_mask = 0
+transform/pos = Vector2( 180, 230 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 110, 100, 60, 60 )
+region_rect = Rect2( 1301, 345, 50, 50 )
+
+[node name="StaticBodyEmpty" type="StaticBody2D" parent="Empty-container"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolyEmpty" type="CollisionPolygon2D" parent="Empty-container/StaticBodyEmpty"]
+
+build_mode = 0
+polygon = Vector2Array( -12.5, -25, -37.5, -12.5, -37.5, 25, 37.5, 25, 37.5, -12.5, 12.5, -25 )
+shape_range = Vector2( 0, 0 )
+trigger = false
 
 [node name="Background" type="Sprite" parent="."]
 
-transform/pos = Vector2( 320, 40 )
-transform/scale = Vector2( 1.33333, 1.33333 )
+transform/pos = Vector2( 330, 40 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 110, 100, 60, 60 )
+region_rect = Rect2( 102, 101, 50, 50 )
+
+[node name="Cake" type="Sprite" parent="."]
+
+transform/pos = Vector2( 180, 140 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 1345, 345, 50, 50 )
+
+[node name="StaticBodyCake" type="StaticBody2D" parent="Cake"]
+
+transform/scale = Vector2( 0.8, 0.8 )
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolyCake" type="CollisionPolygon2D" parent="Cake/StaticBodyCake"]
+
+build_mode = 0
+polygon = Vector2Array( -15.625, -31.25, -46.875, -15.625, -46.875, 31.25, 46.875, 31.25, 46.875, -15.625, 15.625, -31.25 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Coffee_Pointer" type="Sprite" parent="."]
+
+transform/pos = Vector2( 330, 140 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 1485, 305, 50, 50 )
+
+[node name="StaticBodyCoffee-P" type="StaticBody2D" parent="Coffee_Pointer"]
+
+transform/scale = Vector2( 0.8, 0.8 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolyCoffee-P" type="CollisionPolygon2D" parent="Coffee_Pointer/StaticBodyCoffee-P"]
+
+build_mode = 0
+polygon = Vector2Array( -15.625, -31.25, -46.875, -15.625, -46.875, 31.25, 46.875, 31.25, 46.875, -15.625, 15.625, -31.25 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Cake_Pointer" type="Sprite" parent="."]
+
+transform/pos = Vector2( 40, 230 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 1700, 345, 50, 50 )
+
+[node name="StaticBodyCake-P" type="StaticBody2D" parent="Cake_Pointer"]
+
+transform/scale = Vector2( 0.8, 0.8 )
+input/pickable = false
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolyCake-P" type="CollisionPolygon2D" parent="Cake_Pointer/StaticBodyCake-P"]
+
+build_mode = 0
+polygon = Vector2Array( -15.625, -31.25, -46.875, -15.625, -46.875, 31.25, 46.875, 31.25, 46.875, -15.625, 15.625, -31.25 )
+shape_range = Vector2( 0, 0 )
+trigger = false
 
 

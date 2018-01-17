@@ -23,7 +23,7 @@ func _process(delta):
 				to_walk = 0
 		
 		var atpos = path[path.size() - 1]
-		get_node("Coffee").set_pos(atpos)
+		get_node("Coffee_Sprite").set_pos(atpos)
 		
 		if (path.size() < 2):
 			path = []
@@ -40,15 +40,14 @@ func _update_path():
 	set_process(true)
 
 
-func _input(event):
-	var Player2_pos = get_node("Player2/Player2_Sprite").get_pos()
+func input():
+	var Player2_pos = get_node("../Player2/Player2_Sprite").get_pos()
 	
-	if (Input.is_action_pressed("Player2_Pickup")):
-		begin = get_node("Coffee").get_pos()
-		# Mouse to local navigation coordinates
-		end = Player2_pos - get_pos()
-		_update_path()
+	begin = get_node("Coffee_Sprite").get_pos()
+	# Mouse to local navigation coordinates
+	end = Player2_pos - get_pos()
+	_update_path()
 
 
 func _ready():
-	set_process_input(true)
+	set_process(true)

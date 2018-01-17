@@ -41,3 +41,6 @@ func addCoffee():
 #Subtract coffee
 func subtractCoffee():
 	coffee -= 1
+
+func _get_Coffee():
+	return coffee

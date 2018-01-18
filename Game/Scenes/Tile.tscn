@@ -38,7 +38,6 @@ points = Vector2Array( 15.625, -31.25, 46.875, -15.625, 46.875, 31.25, -46.875, 
 
 visibility/light_mask = 0
 transform/pos = Vector2( 40, 40 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 702, 101, 50, 50 )
@@ -69,7 +68,6 @@ trigger = false
 
 visibility/light_mask = 0
 transform/pos = Vector2( 180, 40 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 502, 101, 50, 50 )
@@ -98,7 +96,6 @@ trigger = false
 
 visibility/light_mask = 0
 transform/pos = Vector2( 40, 140 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 1301, 301, 50, 50 )
@@ -127,7 +124,6 @@ trigger = false
 
 visibility/light_mask = 0
 transform/pos = Vector2( 180, 230 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 1301, 345, 50, 50 )
@@ -155,7 +151,6 @@ trigger = false
 [node name="Background" type="Sprite" parent="."]
 
 transform/pos = Vector2( 330, 40 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 102, 101, 50, 50 )
@@ -163,7 +158,6 @@ region_rect = Rect2( 102, 101, 50, 50 )
 [node name="Cake" type="Sprite" parent="."]
 
 transform/pos = Vector2( 180, 140 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 1345, 345, 50, 50 )
@@ -192,7 +186,6 @@ trigger = false
 [node name="Coffee_Pointer" type="Sprite" parent="."]
 
 transform/pos = Vector2( 330, 140 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 1485, 305, 50, 50 )
@@ -221,7 +214,6 @@ trigger = false
 [node name="Cake_Pointer" type="Sprite" parent="."]
 
 transform/pos = Vector2( 40, 230 )
-transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 region = true
 region_rect = Rect2( 1700, 345, 50, 50 )

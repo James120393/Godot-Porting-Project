@@ -1,49 +1,66 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Scripts/game.gd" type="Script" id=1]
-[ext_resource path="res://Art/Tile_set.tres" type="TileSet" id=2]
-[ext_resource path="res://Scripts/Player1.gd" type="Script" id=3]
-[ext_resource path="res://Art/Player1-Sprite-plate.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Player2.gd" type="Script" id=5]
-[ext_resource path="res://Art/Player2-Sprite-Plate.png" type="Texture" id=6]
-[ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=7]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=8]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=9]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/Text.gd" type="Script" id=11]
-[ext_resource path="res://Art/Cup.png" type="Texture" id=12]
+[ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=2]
+[ext_resource path="res://Art/Tile_set.tres" type="TileSet" id=3]
+[ext_resource path="res://Scripts/Text.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Player1.gd" type="Script" id=5]
+[ext_resource path="res://Art/Player1-Sprite.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Player2.gd" type="Script" id=7]
+[ext_resource path="res://Art/Player2-Sprite.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Dispenser.gd" type="Script" id=9]
+[ext_resource path="res://Art/Cup.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Container.gd" type="Script" id=11]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=12]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=13]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=14]
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 460, -20, 600, -20, 600, 120, 460, 120 )
 
-[sub_resource type="NavigationPolygon" id=2]
-
-vertices = Vector2Array( 1482.22, -1471.14, 1482.22, 178.923, -945.185, 178.923, -945.185, -1471.14 )
-polygons = [ IntArray( 0, 1, 2, 3 ) ]
-outlines = [ Vector2Array( -945.185, -1471.14, -945.185, 178.923, 1482.22, 178.923, 1482.22, -1471.14 ) ]
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 41.5699, 80 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
+
+[sub_resource type="NavigationPolygon" id=4]
+
+vertices = Vector2Array( 758.597, -302.043, 758.597, 299.557, -559.803, 299.557, -559.803, -302.043 )
+polygons = [ IntArray( 0, 1, 2, 3 ) ]
+outlines = [ Vector2Array( -559.803, -302.043, -559.803, 299.557, 758.597, 299.557, 758.597, -302.043 ) ]
 
 [node name="game" type="Navigation2D"]
 
 script/script = ExtResource( 1 )
 
+[node name="TextureFrame1" type="TextureFrame" parent="."]
+
+visibility/opacity = 0.5
+visibility/behind_parent = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -280.0
+margin/top = -140.0
+margin/right = 1390.0
+margin/bottom = 960.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+
 [node name="Area2D" type="Area2D" parent="."]
 
-transform/pos = Vector2( 490, 350 )
+transform/pos = Vector2( 430, 360 )
 transform/scale = Vector2( 1.375, 1.33594 )
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.363636, 0, 0, 0.374269, -65.4546, 149.707 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -54,11 +71,11 @@ angular_damp = 1.0
 [node name="TileMap" type="TileMap" parent="."]
 
 visibility/behind_parent = true
-transform/pos = Vector2( 60, 0 )
+transform/pos = Vector2( 12.5, 150 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 50, 50 )
-cell/quadrant_size = 1
+cell/quadrant_size = 2
 cell/custom_transform = Matrix32( 0, 0, 0, 0, 0, 0 )
 cell/half_offset = 2
 cell/tile_origin = 0
@@ -69,62 +86,46 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 65535, 0, 0, 0, 1, 4, 2, 4, 3, 4, 4, 4, 5, 4, 6, 4, 7, 4, 8, 4, 9, 4, 10, 4, 11, 4, 12, 4, 13, 4, 14, 4, 15, 4, 16, 4, 17, 0, 18, 0, 131071, 0, 65536, 0, 65537, 4, 65538, 4, 65539, 4, 65540, 4, 65541, 4, 65542, 4, 65543, 4, 65544, 4, 65545, 4, 65546, 4, 65547, 4, 65548, 4, 65549, 4, 65550, 4, 65551, 4, 65552, 4, 65553, 0, 65554, 0, 196607, 0, 131072, 0, 131073, 4, 131074, 4, 131075, 4, 131076, 4, 131077, 4, 131078, 4, 131079, 4, 131080, 4, 131081, 4, 131082, 4, 131083, 4, 131084, 4, 131085, 4, 131086, 4, 131087, 4, 131088, 4, 131089, 0, 131090, 0, 262143, 0, 196608, 0, 196609, 4, 196610, 4, 196611, 4, 196612, 4, 196613, 4, 196614, 4, 196615, 4, 196616, 4, 196617, 4, 196618, 4, 196619, 4, 196620, 4, 196621, 4, 196622, 4, 196623, 4, 196624, 4, 196625, 0, 196626, 0, 327679, 0, 262144, 0, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 8, 262153, 1, 262154, 1, 262155, 1, 262156, 1, 262157, 1, 262158, 1, 262159, 1, 262160, 1, 262161, 0, 262162, 0, 393215, 0, 327680, 0, 327681, 4, 327682, 4, 327683, 4, 327684, 4, 327685, 4, 327686, 4, 327687, 4, 327688, 4, 327689, 4, 327690, 4, 327691, 4, 327692, 4, 327693, 4, 327694, 4, 327695, 4, 327696, 4, 327697, 0, 327698, 0, 458751, 0, 393216, 0, 393217, 4, 393218, 4, 393219, 4, 393220, 4, 393221, 4, 393222, 4, 393223, 4, 393224, 4, 393225, 4, 393226, 4, 393227, 4, 393228, 4, 393229, 4, 393230, 4, 393231, 4, 393232, 4, 393233, 0, 393234, 0, 524287, 0, 458752, 0, 458753, 4, 458754, 4, 458755, 4, 458756, 4, 458757, 4, 458758, 4, 458759, 4, 458760, 4, 458761, 4, 458762, 4, 458763, 4, 458764, 4, 458765, 4, 458766, 4, 458767, 4, 458768, 4, 458769, 0, 458770, 0, 589823, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 2, 524297, 0, 524298, 0, 524299, 0, 524300, 0, 524301, 0, 524302, 0, 524303, 0, 524304, 0, 524305, 0, 524306, 0 )
+tile_data = IntArray( 0, 0, 1, 0, 2, 4, 3, 4, 4, 4, 5, 4, 6, 4, 7, 4, 8, 4, 9, 4, 10, 4, 11, 4, 12, 4, 13, 4, 14, 4, 15, 4, 16, 4, 17, 4, 18, 0, 19, 0, 65536, 0, 65537, 0, 65538, 4, 65539, 4, 65540, 4, 65541, 4, 65542, 4, 65543, 4, 65544, 4, 65545, 4, 65546, 4, 65547, 4, 65548, 4, 65549, 4, 65550, 4, 65551, 4, 65552, 4, 65553, 4, 65554, 0, 65555, 0, 131072, 0, 131073, 0, 131074, 4, 131075, 4, 131076, 4, 131077, 4, 131078, 4, 131079, 4, 131080, 4, 131081, 4, 131082, 4, 131083, 4, 131084, 4, 131085, 4, 131086, 4, 131087, 4, 131088, 4, 131089, 4, 131090, 0, 131091, 0, 196608, 0, 196609, 0, 196610, 4, 196611, 4, 196612, 4, 196613, 4, 196614, 4, 196615, 4, 196616, 4, 196617, 4, 196618, 4, 196619, 4, 196620, 4, 196621, 4, 196622, 4, 196623, 4, 196624, 4, 196625, 4, 196626, 0, 196627, 0, 262144, 0, 262145, 0, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 8, 262153, 1, 262154, 1, 262155, 1, 262156, 1, 262157, 1, 262158, 1, 262159, 1, 262160, 1, 262161, 1, 262162, 0, 262163, 0, 327680, 0, 327681, 0, 327682, 4, 327683, 4, 327684, 4, 327685, 4, 327686, 4, 327687, 4, 327688, 4, 327689, 4, 327690, 4, 327691, 4, 327692, 4, 327693, 4, 327694, 4, 327695, 4, 327696, 4, 327697, 4, 327698, 0, 327699, 0, 393216, 0, 393217, 0, 393218, 4, 393219, 4, 393220, 4, 393221, 4, 393222, 4, 393223, 4, 393224, 4, 393225, 4, 393226, 4, 393227, 4, 393228, 4, 393229, 4, 393230, 4, 393231, 4, 393232, 4, 393233, 4, 393234, 0, 393235, 0, 458752, 0, 458753, 0, 458754, 4, 458755, 4, 458756, 4, 458757, 4, 458758, 4, 458759, 4, 458760, 4, 458761, 4, 458762, 4, 458763, 4, 458764, 4, 458765, 4, 458766, 4, 458767, 4, 458768, 4, 458769, 4, 458770, 0, 458771, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 2, 524297, 0, 524298, 0, 524299, 0, 524300, 0, 524301, 0, 524302, 0, 524303, 0, 524304, 0, 524305, 0, 524306, 0, 524307, 0 )
 
-[node name="NavigationPoly" type="NavigationPolygonInstance" parent="."]
+[node name="Player2_Value" type="RichTextLabel" parent="."]
 
-visibility/visible = false
-transform/pos = Vector2( 380, 740 )
-transform/scale = Vector2( 0.5, 0.5 )
-navpoly = SubResource( 2 )
-enabled = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 400.0
+margin/right = 110.0
+margin/bottom = 600.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+percent_visible = 1.0
+script/script = ExtResource( 4 )
+
+[node name="Player1_Value" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 150.0
+margin/right = 110.0
+margin/bottom = 350.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+percent_visible = 1.0
+script/script = ExtResource( 4 )
 
 [node name="Player1" type="RigidBody2D" parent="."]
 
-transform/pos = Vector2( 140, 160 )
+transform/pos = Vector2( 150, 310 )
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 0.5, 0, 0, 0.518521, 0.49852, -0.400696 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-mode = 2
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = -1.0
-damp_override/angular = -1.0
-script/script = ExtResource( 3 )
-Player_speed = 200
-
-[node name="Player1_Sprite" type="Sprite" parent="Player1"]
-
-transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-
-[node name="CollisionShapePlayer1" type="CollisionShape2D" parent="Player1"]
-
-transform/pos = Vector2( 0.49852, -0.400696 )
-transform/scale = Vector2( 0.5, 0.518521 )
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Player2" type="RigidBody2D" parent="."]
-
-transform/pos = Vector2( 150, 360 )
-input/pickable = false
-shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 2.03846, 0, 0, 4.43047, -7.00938, -0.587952 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -145,35 +146,111 @@ damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 5 )
 Player_speed = 200
+
+[node name="Player1_Sprite" type="Sprite" parent="Player1"]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShapePlayer1" type="CollisionShape2D" parent="Player1"]
+
+transform/pos = Vector2( 0.49852, -0.400696 )
+transform/scale = Vector2( 0.5, 0.518521 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Player2" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 160, 510 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 2.03846, 0, 0, 4.43047, -7.00938, -0.587952 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 7 )
+Player_speed = 200
 Player_jump_height = 200
 
 [node name="Player2_Sprite" type="Sprite" parent="Player2"]
 
 transform/pos = Vector2( -0.209, 0.098999 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
 
 transform/pos = Vector2( -7.00938, -0.587952 )
 transform/scale = Vector2( 2.03846, 4.43047 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Info" type="Panel" parent="."]
+[node name="Coffee_Dis" type="Navigation2D" parent="."]
+
+transform/pos = Vector2( 437.146, 573.068 )
+transform/scale = Vector2( 0.78125, 0.78125 )
+script/script = ExtResource( 9 )
+
+[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Dis"]
+
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 10 )
+
+[node name="NavPoly_Dis" type="NavigationPolygonInstance" parent="Coffee_Dis"]
+
+visibility/visible = false
+transform/pos = Vector2( 3.65314, -247.127 )
+navpoly = SubResource( 4 )
+enabled = true
+
+[node name="Coffee_Con" type="Navigation2D" parent="."]
+
+transform/pos = Vector2( 437.346, 375.971 )
+transform/scale = Vector2( 0.78125, 0.78125 )
+script/script = ExtResource( 11 )
+
+[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con"]
+
+visibility/visible = false
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 10 )
+
+[node name="NavPoly_Con" type="NavigationPolygonInstance" parent="Coffee_Con"]
+
+visibility/visible = false
+navpoly = SubResource( 4 )
+enabled = true
+
+[node name="Info" type="Panel" parent="Coffee_Con"]
 
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 210.0
-margin/top = 40.0
-margin/right = 770.0
-margin/bottom = 400.0
+margin/left = -291.003
+margin/top = -430.043
+margin/right = 268.997
+margin/bottom = -70.0429
 
-[node name="TextureFrame" type="TextureFrame" parent="Info"]
+[node name="TextureFrame" type="TextureFrame" parent="Coffee_Con/Info"]
 
 visibility/opacity = 0.5
 visibility/behind_parent = true
@@ -185,10 +262,10 @@ margin/left = -200.0
 margin/top = -40.0
 margin/right = 800.0
 margin/bottom = 410.0
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 stretch_mode = 2
 
-[node name="TextureFrame 2" type="TextureFrame" parent="Info"]
+[node name="TextureFrame 2" type="TextureFrame" parent="Coffee_Con/Info"]
 
 rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = true
@@ -199,10 +276,10 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 700.0
 margin/bottom = 450.0
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 stretch_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Info"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Coffee_Con/Info"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -237,31 +314,10 @@ margin/bottom = 518.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
+textures/normal = ExtResource( 12 )
+textures/pressed = ExtResource( 13 )
+textures/hover = ExtResource( 14 )
 params/resize_mode = 0
 params/stretch_mode = 0
-
-[node name="Label" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 0.0
-margin/right = 110.0
-margin/bottom = 280.0
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script/script = ExtResource( 11 )
-
-[node name="Coffee_Sprite" type="Sprite" parent="."]
-
-transform/pos = Vector2( 490, 420 )
-transform/scale = Vector2( 0.431035, 0.505051 )
-texture = ExtResource( 12 )
 
 

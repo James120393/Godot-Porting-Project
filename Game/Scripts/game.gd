@@ -10,76 +10,47 @@ var path = []
 var CanPickUp = false
 
 func _ready():
-	set_process(true)
+	#set_process(true)
 	set_process_input(true)
 
+# Funtion to detect input events
+func _input(event):
+	if (Input.is_action_pressed("Player2_Pickup")):
+		_On_Pickup_Button_Pressed()
 
-# Temp Function
+	if get_node("Play").is_pressed():
+		_on_play_Button_pressed()
+
+# Called every frame
 func _process(delta):
 	var Player1_pos = get_node("Player1").get_pos() 
-	var Player2_pos = get_node("Player2").get_pos()
 	var Collision = get_node("Area2D")
 
 
-# Move coffee from the origin to the player ## Need funtion to get the center of the coffee tile to get the origin
-	if (path.size() > 1):
-		var to_walk = delta*SPEED
-		while(to_walk > 0 and path.size() >= 2):
-			var pfrom = path[path.size() - 1]
-			var pto = path[path.size() - 2]
-			var d = pfrom.distance_to(pto)
-			if (d <= to_walk):
-				path.remove(path.size() - 1)
-				to_walk -= d
-			else:
-				path[path.size() - 1] = pfrom.linear_interpolate(pto, to_walk/d)
-				to_walk = 0
-	
-		var atpos = path[path.size() - 1]
-		get_node("Coffee_Sprite").set_pos(atpos)
-		
-		if (path.size() < 2):
-			path = []
-			set_process(false)
-			_Change_Player_Sprite()
-			get_node("Player2").addCoffee()												#add coffee to player 2
-			print (str(get_node("Player2").coffee))
-
-	else:
-		set_process(false)
-
-
 func _On_Pickup_Button_Pressed():
-	return
+	new_Coffee()
 
 func _on_play_Button_pressed():
 	get_node("Info").set_hidden(true)
 	get_node("Play").set_disabled(true)
 	get_node("Play").set_hidden(true)
 
-
-func _update_path():
-	var p = get_simple_path(begin, end, true)
-	path = Array(p) # Vector2array too complex to use, convert to regular array
-	path.invert()
-
-	set_process(true)
-
-func _input(event):
+# Spawn a new coffee
+func new_Coffee():
 	var Player2_pos = get_node("Player2").get_pos()
-
-	if (Input.is_action_pressed("Player2_Pickup")):
-		begin = get_node("Coffee_Sprite").get_pos()
-		# Mouse to local navigation coordinates
-		end = Player2_pos - get_pos()
-		_update_path()
-
-	if (Input.is_action_pressed("Player2_Pickup")):
-		return
-
-	if get_node("Play").is_pressed():
-		_on_play_Button_pressed()
-
-func _Change_Player_Sprite():
-	var Player2 = get_node("Player2/Player2_Sprite")
-	Player2.set_texture(load("res://Art/Player2-Sprite-Plate-Cofee.png"))
+	# Declare Variables by calling the new() function
+	var spawn_Coffee = Node2D.new()
+	var coffee_Sprite  = Sprite.new()
+	
+	# Set the two node to be a child of the scene
+	get_node("Coffee_Dis").add_child(spawn_Coffee)
+	spawn_Coffee.add_child(coffee_Sprite)
+	
+	# Set the owner of the new nodes
+	spawn_Coffee.set_owner(get_node("Coffee_Dis"))
+	coffee_Sprite.set_owner(spawn_Coffee)
+	
+	# Load the texture and set the scale/Position
+	coffee_Sprite.set_texture(load("res://Art/Cup.png"))
+	spawn_Coffee.set_scale(Vector2(0.5,0.5))
+	spawn_Coffee.set_pos(Player2_pos)

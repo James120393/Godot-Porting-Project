@@ -9,8 +9,6 @@ var Move_Right = Input.is_action_pressed("Player2_Move_Right")
 var Move_Left = Input.is_action_pressed("Player2_Move_Left")
 var Jump = Input.is_action_pressed("Player2_Jump")
 
-onready var Plr2_pos = get_node("Player2_Sprite").get_pos()
-
 func _ready():
 	# Initalization here
 	coffee = 0
@@ -29,10 +27,18 @@ func _fixed_process(delta):
 		set_linear_velocity(Vector2(get_linear_velocity().x, -Player_jump_height))
 	else:
 		set_linear_velocity(Vector2(0,get_linear_velocity().y))
-		
-		
-func _Get_Player2_Pos():
-	return get_node("Player2").get_pos()
+
+
+func change_Player_Sprite():
+	var Player2 = get_node("Player2_Sprite")
+	
+	if (_get_Coffee() >= 1):
+		Player2.set_texture(load("res://Art/Player2-Sprite-Plate-Cofee.png"))
+	else:
+		Player2.set_texture(load("res://Art/Player2-Sprite.png"))
+
+func get_Player_POS():
+	return get_node("../Player2").get_pos()
 
 #Add coffee
 func addCoffee():

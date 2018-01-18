@@ -1,10 +1,16 @@
 extends TileMap
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var tile_Size = get_cell_size()
+var half_Tile_Size = tile_Size / 2
+
+var grid_Size = get_node("TileMap").
+var grid = []
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	for x in range(grid_Size.x):
+		grid.append([])
+		for y in range(grid_Size.y):
+			grid[x].append(null)
+		
 	pass
+	

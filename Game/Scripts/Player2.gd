@@ -37,9 +37,6 @@ func change_Player_Sprite():
 	else:
 		Player2.set_texture(load("res://Art/Player2-Sprite.png"))
 
-func get_Player_POS():
-	return get_node("../Player2").get_pos()
-
 #Add coffee
 func addCoffee():
 	coffee += 1

@@ -1,68 +1,72 @@
-extends Navigation2D
+extends KinematicBody2D
 
 # Member variables
-const start = Vector2(120, 649)
-const SPEED = 800.0
+const speed = 8.0
 
 var begin = Vector2()
 var end = Vector2()
 var path = []
 
+var Visible = true
+var Add = true
+
 var Player = null
 var Coffee = null
 var Text = null
 
-var Visible = true
-var Add = true
-
 func _process(delta):
-	if (path.size() > 1):
-		Coffee.set_hidden(false)
-		var to_walk = delta*SPEED
-		while(to_walk > 0 and path.size() >= 2):
-			var pfrom = path[path.size() - 1]
-			var pto = path[path.size() - 2]
-			var d = pfrom.distance_to(pto)
-			if (d <= to_walk):
-				path.remove(path.size() - 1)
-				to_walk -= d
-			else:
-				path[path.size() - 1] = pfrom.linear_interpolate(pto, to_walk/d)
-				to_walk = 0
+	pass
+	#if (path.size() > 1):
+		#Coffee.set_hidden(false)
+#		var angle = get_rot() - PI/2.0
+#		var dir = Vector2(cos(angle), - sin(angle))
 
-		var atpos = path[path.size() - 1]
-		Coffee.set_pos(atpos)
+#		var to_walk = delta*SPEED
+#		while(to_walk > 0 and path.size() >= 2):
+#			var pfrom = path[path.size() - 1]
+#			var pto = path[path.size() - 2]
+#			var d = pfrom.distance_to(pto)
+#			if (d <= to_walk):
+#				path.remove(path.size() - 1)
+#				to_walk -= d
+#			else:
+#				path[path.size() - 1] = pfrom.linear_interpolate(pto, to_walk/d)
+#				to_walk = 0
+#
+#		var atpos = path[path.size() - 1]
+#		Coffee.set_global_pos(atpos)
+#
+#		if (path.size() < 2):
+#			path = []
+#			set_process(false)
+#			if (Add == true):
+#				Player.addCoffee()										#add coffee to player 2
+#			else:
+#				Player.subtractCoffee()
+#			Player.change_Player_Sprite()
+#			Coffee.set_hidden(Visible)
+#			Text._update_Player2_Text()
+#			print (str(Player.coffee))
+#
+#	else:
+#		set_process(false)
 
-		if (path.size() < 2):
-			path = []
-			set_process(false)
-			if (Add == true):
-				Player.addCoffee()										#add coffee to player 2
-			else:
-				Player.subtractCoffee()
-			Player.change_Player_Sprite()
-			Coffee.set_hidden(Visible)
-			Text._update_Player2_Text()
-			print (str(Player.coffee))
-
-	else:
-		set_process(false)
 
 
 func _update_path():
-	var p = get_simple_path(begin, end, true)
-	path = Array(p) # Vector2array too complex to use, convert to regular array
-	path.invert()
+#	var p = get_simple_path(begin, end, true)
+#	path = Array(p) # Vector2array too complex to use, convert to regular array
+#	path.invert()
 
 	set_process(true)
 
 
 func _input(event):
-	var Player2_POS = get_node("../Player2").get_Player_POS()
+	var Player2_POS = get_node("../Player2").get_pos()
 	var Player1_POS = get_node("../Coffee_Con").get_pos()
 	
 	if (Input.is_action_pressed("Player2_Pickup")):
-		begin = get_node("../Coffee_Dis").get_pos()
+		begin = self.get_pos()
 		# Mouse to local navigation coordinates
 		end = Player2_POS - get_pos()
 		

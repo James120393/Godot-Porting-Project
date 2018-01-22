@@ -1,22 +1,45 @@
-extends Navigation2D
+extends Control
 
-# Member variables
-const start = Vector2(120, 649)
-const SPEED = 800.0
-
-var begin = Vector2()
-var end = Vector2()
-var path = []
 var CanPickUp = false
+
+var areas = []
+
+var state = {
+	trans = Tween.TRANS_LINEAR,
+	eases = Tween.EASE_IN,
+}
+
+func _check_area():
+	areas = []
+	
+	for area in areas:
+		area.overlaps_body(get_node("Player2"))
+		if (true):
+			return area
+		else:
+			pass
+		pass
+	pass
 
 func _ready():
 	#set_process(true)
 	set_process_input(true)
+	set_process(true)
 
 # Funtion to detect input events
 func _input(event):
-	if (Input.is_action_pressed("Player2_Pickup")):
+	var collision = get_node("Area1").get_overlapping_bodies()
+	
+	if (Input.is_action_pressed("Player2_Pickup") and _check_collision(collision) == true):
 		_On_Pickup_Button_Pressed()
+	else:
+		pass
+
+func _check_collision(collision):
+	for obj in collision:
+		if (obj.get_name() == "Player2"):
+			return true
+	return false
 
 	if get_node("Play").is_pressed():
 		_on_play_Button_pressed()
@@ -24,11 +47,29 @@ func _input(event):
 # Called every frame
 func _process(delta):
 	var Player1_pos = get_node("Player1").get_pos() 
-	var Collision = get_node("Area2D")
+#	var Collision = get_node("Area2D")
+	var player_pos = get_node("Player2").get_pos()
+	var coffee_pos = get_node("Tween/Coffee").get_pos()
+	var distance = coffee_pos.distance_to(player_pos)
+	
+	if (distance <= 20):
+		get_node("Tween").stop_all()
+		
+	else:
+		pass
 
 
 func _On_Pickup_Button_Pressed():
-	new_Coffee()
+	var tween = get_node("Tween")
+	var coffee = get_node("Tween/Coffee")
+	var follow = get_node("Player2")
+	var origin = get_node("Coffee_Dis").get_pos()
+	
+	tween.follow_method(coffee, "set_pos", origin, follow, "get_pos", 2, state.trans, state.eases)
+	tween.targeting_method(coffee, "set_pos", follow, "get_pos", origin, 2, state.trans, state.eases, 2)
+	tween.start()
+
+
 
 func _on_play_Button_pressed():
 	get_node("Info").set_hidden(true)
@@ -37,20 +78,21 @@ func _on_play_Button_pressed():
 
 # Spawn a new coffee
 func new_Coffee():
-	var Player2_pos = get_node("Player2").get_pos()
-	# Declare Variables by calling the new() function
-	var spawn_Coffee = Node2D.new()
-	var coffee_Sprite  = Sprite.new()
-	
-	# Set the two node to be a child of the scene
-	get_node("Coffee_Dis").add_child(spawn_Coffee)
-	spawn_Coffee.add_child(coffee_Sprite)
-	
-	# Set the owner of the new nodes
-	spawn_Coffee.set_owner(get_node("Coffee_Dis"))
-	coffee_Sprite.set_owner(spawn_Coffee)
-	
-	# Load the texture and set the scale/Position
-	coffee_Sprite.set_texture(load("res://Art/Cup.png"))
-	spawn_Coffee.set_scale(Vector2(0.5,0.5))
-	spawn_Coffee.set_pos(Player2_pos)
+	pass
+#	var Player2_pos = get_node("Player2").get_pos()
+#	# Declare Variables by calling the new() function
+#	var spawn_Coffee = Node2D.new()
+#	var coffee_Sprite  = Sprite.new()
+#	
+#	# Set the two node to be a child of the scene
+#	get_node("Coffee_Dis").add_child(spawn_Coffee)
+#	spawn_Coffee.add_child(coffee_Sprite)
+#	
+#	# Set the owner of the new nodes
+#	spawn_Coffee.set_owner(get_node("Coffee_Dis"))
+#	coffee_Sprite.set_owner(spawn_Coffee)
+#	
+#	# Load the texture and set the scale/Position
+#	coffee_Sprite.set_texture(load("res://Art/Cup.png"))
+#	spawn_Coffee.set_scale(Vector2(0.5,0.5))
+#	spawn_Coffee.set_pos(Player2_pos)

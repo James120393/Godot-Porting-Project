@@ -2,24 +2,32 @@ extends Control
 
 var CanPickUp = false
 
-var areas = []
+#var areas = []
 
 var state = {
 	trans = Tween.TRANS_LINEAR,
 	eases = Tween.EASE_IN,
 }
 
-func _check_area():
-	areas = []
-	
-	for area in areas:
-		area.overlaps_body(get_node("Player2"))
-		if (true):
-			return area
+func getallnodes():
+	var node = get_node("Area_Parent")
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			getallnodes(N)
 		else:
 			pass
-		pass
-	pass
+
+func _check_area():
+	var areas = [Area_Parent]
+
+	for area in areas:
+		area.get_overlapping_bodies()
+		for obj in area:
+			if (obj.get_name() == "Player2"):
+				return "Player2"
+		return false
+	return false
+	
 
 func _ready():
 	#set_process(true)
@@ -30,10 +38,11 @@ func _ready():
 func _input(event):
 	var collision = get_node("Area1").get_overlapping_bodies()
 	
-	if (Input.is_action_pressed("Player2_Pickup") and _check_collision(collision) == true):
+	if (Input.is_action_pressed("Player2_Pickup") and _check_area() == "Player2"):
 		_On_Pickup_Button_Pressed()
 	else:
 		pass
+
 
 func _check_collision(collision):
 	for obj in collision:
@@ -47,14 +56,14 @@ func _check_collision(collision):
 # Called every frame
 func _process(delta):
 	var Player1_pos = get_node("Player1").get_pos() 
-#	var Collision = get_node("Area2D")
 	var player_pos = get_node("Player2").get_pos()
 	var coffee_pos = get_node("Tween/Coffee").get_pos()
 	var distance = coffee_pos.distance_to(player_pos)
 	
-	if (distance <= 20):
+	if (distance <= 5):
 		get_node("Tween").stop_all()
-		
+		get_node("Player2").addCoffee()
+		get_node("Tween").reset_all()
 	else:
 		pass
 

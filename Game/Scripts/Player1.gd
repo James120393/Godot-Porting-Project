@@ -36,10 +36,12 @@ func get_Player_POS():
 #Add coffee
 func addCoffee():
 	coffee += 1
-	
+	get_node("../Player1_Value")._update_Player1_Text()
+
 #Subtract coffee
 func subtractCoffee():
 	coffee -= 1
+	get_node("../Player1_Value")._update_Player1_Text()
 
 func _get_Coffee():
 	return coffee

@@ -40,10 +40,13 @@ func change_Player_Sprite():
 #Add coffee
 func addCoffee():
 	coffee += 1
-	
+	get_node("../Player2_Value")._update_Player2_Text()
+
+
 #Subtract coffee
 func subtractCoffee():
 	coffee -= 1
+	get_node("../Player2_Value")._update_Player2_Text()
 
 func _get_Coffee():
 	return coffee

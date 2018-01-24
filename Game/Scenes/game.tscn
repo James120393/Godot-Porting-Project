@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=1]
+[gd_scene load_steps=24 format=1]
 
 [ext_resource path="res://Scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=2]
@@ -10,55 +10,56 @@
 [ext_resource path="res://Art/Player2-Sprite.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Container.gd" type="Script" id=9]
 [ext_resource path="res://Art/Cup.png" type="Texture" id=10]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=11]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=12]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/Area.gd" type="Script" id=11]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=12]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=13]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 22.8533, 6.14148 )
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 24.7778, 7.11682 )
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 13.4686, 34.1123 )
-
-[sub_resource type="RectangleShape2D" id=8]
-
-custom_solver_bias = 0.0
-extents = Vector2( 13.2793, 36.0589 )
-
-[sub_resource type="RectangleShape2D" id=9]
-
-custom_solver_bias = 0.0
-extents = Vector2( 13.5758, 37.6162 )
-
-[sub_resource type="RectangleShape2D" id=10]
-
-custom_solver_bias = 0.0
-extents = Vector2( 26.6091, 10 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
 extents = Vector2( 41.5699, 80 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="NavigationPolygon" id=5]
+[sub_resource type="NavigationPolygon" id=3]
 
 vertices = Vector2Array( 729.6, -294.4, 729.6, 281.6, -550.4, 281.6, -550.4, -294.4 )
 polygons = [ IntArray( 0, 1, 2, 3 ) ]
 outlines = [ Vector2Array( -550.4, -294.4, -550.4, 281.6, 729.6, 281.6, 729.6, -294.4 ) ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22.8533, 6.14148 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24.7778, 7.11682 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 26.6091, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13.4686, 34.1123 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13.2793, 36.0589 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13.5758, 37.6162 )
 
 [node name="game" type="Control"]
 
@@ -86,131 +87,6 @@ margin/right = 1390.0
 margin/bottom = 960.0
 texture = ExtResource( 2 )
 stretch_mode = 2
-
-[node name="Area_Parent" type="Node2D" parent="."]
-
-[node name="Area1" type="Area2D" parent="Area_Parent"]
-
-editor/display_folded = true
-transform/pos = Vector2( 440, 530 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -3.41376, 6.58099 )
-shapes/0/trigger = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Parent/Area1"]
-
-transform/pos = Vector2( -3.41376, 6.58099 )
-shape = SubResource( 1 )
-trigger = true
-_update_shape_index = 0
-
-[node name="Area2" type="Area2D" parent="Area_Parent"]
-
-editor/display_folded = true
-transform/pos = Vector2( 540, 530 )
-input/pickable = true
-shapes/0/shape = SubResource( 6 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -2.92609, 4.14264 )
-shapes/0/trigger = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Parent/Area2"]
-
-transform/pos = Vector2( -2.92609, 4.14264 )
-shape = SubResource( 6 )
-trigger = true
-_update_shape_index = 0
-
-[node name="Area3" type="Area2D" parent="Area_Parent"]
-
-editor/display_folded = true
-transform/pos = Vector2( 431.434, 318.528 )
-transform/scale = Vector2( 0.75, 0.75 )
-input/pickable = true
-shapes/0/shape = SubResource( 7 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.774841, -17.4659 )
-shapes/0/trigger = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Parent/Area3"]
-
-transform/pos = Vector2( 0.774841, -17.4659 )
-shape = SubResource( 7 )
-trigger = true
-_update_shape_index = 0
-
-[node name="Area4" type="Area2D" parent="Area_Parent"]
-
-editor/display_folded = true
-transform/pos = Vector2( 489.283, 321.038 )
-transform/scale = Vector2( 0.75, 0.75 )
-input/pickable = true
-shapes/0/shape = SubResource( 8 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.03314, -18.499 )
-shapes/0/trigger = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Parent/Area4"]
-
-transform/pos = Vector2( -1.03314, -18.499 )
-shape = SubResource( 8 )
-trigger = true
-_update_shape_index = 0
-
-[node name="Area5" type="Area2D" parent="Area_Parent"]
-
-editor/display_folded = true
-transform/pos = Vector2( 537.491, 322.472 )
-transform/scale = Vector2( 0.75, 0.75 )
-input/pickable = true
-shapes/0/shape = SubResource( 9 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.516602, -19.2738 )
-shapes/0/trigger = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Parent/Area5"]
-
-transform/pos = Vector2( 0.516602, -19.2738 )
-shape = SubResource( 9 )
-trigger = true
-_update_shape_index = 0
-
-[node name="Area6" type="Area2D" parent="Area_Parent"]
-
-editor/display_folded = true
-transform/pos = Vector2( 440, 420 )
-transform/scale = Vector2( 0.75, 0.75 )
-input/pickable = true
-shapes/0/shape = SubResource( 10 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Parent/Area6"]
-
-shape = SubResource( 10 )
-trigger = true
-_update_shape_index = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 
@@ -266,9 +142,10 @@ script/script = ExtResource( 4 )
 
 [node name="Player1" type="RigidBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 150, 310 )
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.5, 0, 0, 0.518521, 0.49852, -0.400696 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -300,7 +177,7 @@ texture = ExtResource( 6 )
 
 transform/pos = Vector2( 0.49852, -0.400696 )
 transform/scale = Vector2( 0.5, 0.518521 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -309,7 +186,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 160, 510 )
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 2.03846, 0, 0, 4.43047, -7.00938, -0.587952 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -343,12 +220,13 @@ texture = ExtResource( 8 )
 
 transform/pos = Vector2( -7.00938, -0.587952 )
 transform/scale = Vector2( 2.03846, 4.43047 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Coffee_Dis" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 440, 570 )
 transform/scale = Vector2( 0.78125, 0.78125 )
 input/pickable = false
@@ -360,41 +238,205 @@ collision/margin = 0.08
 
 visibility/visible = false
 transform/pos = Vector2( 0, -243.2 )
-navpoly = SubResource( 5 )
+navpoly = SubResource( 3 )
 enabled = true
 
-[node name="Coffee_Con" type="Navigation2D" parent="."]
+[node name="Coffee_Con_Left" type="Node2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 437.346, 375.971 )
 transform/scale = Vector2( 0.78125, 0.78125 )
 script/script = ExtResource( 9 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con"]
+[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Left"]
 
 visibility/visible = false
 transform/scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 10 )
 
-[node name="NavPoly_Con" type="NavigationPolygonInstance" parent="Coffee_Con"]
+[node name="Coffee_Con_Middle" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 485.844, 375.372 )
+transform/scale = Vector2( 0.78125, 0.78125 )
+script/script = ExtResource( 9 )
+
+[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Middle"]
 
 visibility/visible = false
-navpoly = SubResource( 5 )
-enabled = true
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 10 )
 
-[node name="Info" type="Panel" parent="Coffee_Con"]
+[node name="Coffee_Con_Right" type="Node2D" parent="."]
 
+editor/display_folded = true
+transform/pos = Vector2( 537.934, 375.971 )
+transform/scale = Vector2( 0.78125, 0.78125 )
+script/script = ExtResource( 9 )
+
+[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Right"]
+
+visibility/visible = false
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 10 )
+
+[node name="Tween" type="Tween" parent="."]
+
+editor/display_folded = true
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Coffee" type="Sprite" parent="Tween"]
+
+transform/pos = Vector2( 436.415, 575.019 )
+transform/scale = Vector2( 0.46875, 0.46875 )
+texture = ExtResource( 10 )
+
+[node name="Bottom_Left" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 440, 530 )
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -3.41376, 6.58099 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Left"]
+
+transform/pos = Vector2( -3.41376, 6.58099 )
+shape = SubResource( 4 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Bottom_Right" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 540, 530 )
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -2.92609, 4.14264 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Right"]
+
+transform/pos = Vector2( -2.92609, 4.14264 )
+shape = SubResource( 5 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Under_Left" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 440, 420 )
+transform/scale = Vector2( 0.75, 0.75 )
+input/pickable = true
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Under_Left"]
+
+shape = SubResource( 9 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Top_Left" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 431.434, 318.528 )
+transform/scale = Vector2( 0.75, 0.75 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.774841, -17.4659 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Left"]
+
+transform/pos = Vector2( 0.774841, -17.4659 )
+shape = SubResource( 6 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Top_Middle" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 489.283, 321.038 )
+transform/scale = Vector2( 0.75, 0.75 )
+input/pickable = true
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.03314, -18.499 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Middle"]
+
+transform/pos = Vector2( -1.03314, -18.499 )
+shape = SubResource( 7 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Top_Right" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 537.491, 322.472 )
+transform/scale = Vector2( 0.75, 0.75 )
+input/pickable = true
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.516602, -19.2738 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Right"]
+
+transform/pos = Vector2( 0.516602, -19.2738 )
+shape = SubResource( 8 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Info" type="Panel" parent="."]
+
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -291.003
-margin/top = -430.043
-margin/right = 268.997
-margin/bottom = -70.0429
+margin/left = 210.0
+margin/top = 39.9999
+margin/right = 770.0
+margin/bottom = 400.0
 
-[node name="TextureFrame" type="TextureFrame" parent="Coffee_Con/Info"]
+[node name="TextureFrame" type="TextureFrame" parent="Info"]
 
 visibility/opacity = 0.5
 visibility/behind_parent = true
@@ -409,7 +451,7 @@ margin/bottom = 410.0
 texture = ExtResource( 2 )
 stretch_mode = 2
 
-[node name="TextureFrame 2" type="TextureFrame" parent="Coffee_Con/Info"]
+[node name="TextureFrame 2" type="TextureFrame" parent="Info"]
 
 rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = true
@@ -423,7 +465,7 @@ margin/bottom = 450.0
 texture = ExtResource( 2 )
 stretch_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Coffee_Con/Info"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Info"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -458,23 +500,31 @@ margin/bottom = 518.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
-textures/pressed = ExtResource( 12 )
-textures/hover = ExtResource( 13 )
+textures/normal = ExtResource( 12 )
+textures/pressed = ExtResource( 13 )
+textures/hover = ExtResource( 14 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="Tween" type="Tween" parent="."]
+[node name="Reset" type="TextureButton" parent="."]
 
-playback/process_mode = 1
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Coffee" type="Sprite" parent="Tween"]
-
-transform/pos = Vector2( 440, 570 )
-transform/scale = Vector2( 0.46875, 0.46875 )
-texture = ExtResource( 10 )
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 915.0
+margin/top = 154.0
+margin/right = 1188.0
+margin/bottom = 412.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 12 )
+textures/pressed = ExtResource( 13 )
+textures/hover = ExtResource( 14 )
+params/resize_mode = 0
+params/scale = Vector2( 0.75, 0.75 )
+params/stretch_mode = 0
 
 

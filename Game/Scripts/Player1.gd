@@ -25,7 +25,7 @@ func _fixed_process(delta):
 func change_Player_Sprite():
 	var Player1 = get_node("Player1_Sprite")
 	
-	if (_get_Coffee() >= 1):
+	if (get_Coffee() >= 1):
 		Player1.set_texture(load("res://Art/Player1-Sprite-Plate-Cofee.png"))
 	else:
 		Player1.set_texture(load("res://Art/Player1-Sprite.png"))
@@ -34,14 +34,16 @@ func get_Player_POS():
 	return get_node("../Player1").get_pos()
 
 #Add coffee
-func addCoffee():
+func add_Coffee():
 	coffee += 1
 	get_node("../Player1_Value")._update_Player1_Text()
+	change_Player_Sprite()
 
 #Subtract coffee
-func subtractCoffee():
+func subtract_Coffee():
 	coffee -= 1
 	get_node("../Player1_Value")._update_Player1_Text()
+	change_Player_Sprite()
 
-func _get_Coffee():
+func get_Coffee():
 	return coffee

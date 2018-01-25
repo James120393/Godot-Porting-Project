@@ -2,11 +2,10 @@ extends Control
 
 onready var tween = get_node("Tween")
 onready var t_Coffee = get_node("Tween/Coffee")
-onready var t_Cake = get_node("Tween/Cake")
 onready var Player1 = get_node("Player1")
 onready var Player2 = get_node("Player2")
 onready var Coffee_Origin = get_node("Tween/Coffee").get_pos()
-onready var Cake_Origin = get_node("Tween/Cake").get_pos()
+
 
 var Player1_CanPickUp = false
 var Player2_CanPickUp = false
@@ -38,7 +37,6 @@ func _ready():
 	set_process_input(true)
 	set_process(true)
 
-
 # Funtion to detect input events
 func _input(event):
 
@@ -52,11 +50,23 @@ func _input(event):
 	else:
 		pass
 
+	if (get_node("Coffee_Con_Left").get_Coffee() == "Val"):
+		_end_Level()
 # Detect button presses
 	if get_node("Play").is_pressed():
 		_on_play_Button_pressed()
 	if get_node("Reset").is_pressed():
 		_on_reset_Button_pressed()
+	if (get_node("Next").is_pressed() and get_tree().get_current_scene().get_name() == "0-0"):
+		_on_Next_Button_Pressed("0-1")
+	elif (get_node("Next").is_pressed() and get_tree().get_current_scene().get_name() == "0-1"):
+		_on_Next_Button_Pressed("0-2")
+	elif (get_node("Next").is_pressed() and get_tree().get_current_scene().get_name() == "0-2"):
+		_on_Next_Button_Pressed("0-3")
+	elif (get_node("Next").is_pressed() and get_tree().get_current_scene().get_name() == "0-3"):
+		_on_Next_Button_Pressed("1-0")
+	elif (get_node("Next").is_pressed() and get_tree().get_current_scene().get_name() == "1-0"):
+		_on_Next_Button_Pressed("1-1")
 
 # Called every frame
 func _process(delta):
@@ -65,7 +75,6 @@ func _process(delta):
 	var Player1_pos = get_node("Player1").get_pos() 
 	var Player2_pos = get_node("Player2").get_pos()
 	var coffee_pos = get_node("Tween/Coffee").get_pos()
-	var cake_pos = get_node("Tween/Cake").get_pos()
 
 	# Check distance from the moving sprite to the player to detect
 	# when the sprite should stop
@@ -86,18 +95,22 @@ func _process(delta):
 			pass
 
 	elif (is_coffee == false):
-		var Distance_Plr2_Cake = cake_pos.distance_to(Player2_pos)
-		var Distance_Plr1_Cake = cake_pos.distance_to(Player1_pos)
-		if (Distance_Plr2_Cake <= 5):
-			t_Coffee.set_hidden(true)
-			tween.stop_all()
-			Player2.add_Cake()
-			tween.reset_all()
-		elif (Distance_Plr1_Cake <= 5):
-			t_Coffee.set_hidden(true)
-			tween.stop_all()
-			Player1.add_Cake()
-			tween.reset_all()
+		if (get_node("Tween/Cake") != null):
+			var cake_pos = get_node("Tween/Cake").get_pos()
+			var Distance_Plr2_Cake = cake_pos.distance_to(Player2_pos)
+			var Distance_Plr1_Cake = cake_pos.distance_to(Player1_pos)
+			if (Distance_Plr2_Cake <= 5):
+				t_Coffee.set_hidden(true)
+				tween.stop_all()
+				Player2.add_Cake()
+				tween.reset_all()
+			elif (Distance_Plr1_Cake <= 5):
+				t_Coffee.set_hidden(true)
+				tween.stop_all()
+				Player1.add_Cake()
+				tween.reset_all()
+			else:
+				pass
 		else:
 			pass
 	else:
@@ -152,15 +165,18 @@ func _On_Pickup_Button_Pressed(Player):
 	if (Player == "Player2" and Area_Player2.bottom_Left == true):
 		is_coffee = true
 		t_Coffee.set_hidden(false)
-		tween.follow_method(t_Coffee, "set_pos", Coffee_Origin, Player2, "get_pos", 2, state.trans, state.eases)
-		tween.targeting_method(t_Coffee, "set_pos", Player2, "get_pos", Coffee_Origin, 2, state.trans, state.eases, 2)
+		tween.follow_method(t_Coffee, "set_pos", Coffee_Origin, Player2, "get_pos", 0.5, state.trans, state.eases)
+		tween.targeting_method(t_Coffee, "set_pos", Player2, "get_pos", Coffee_Origin, 0.5, state.trans, state.eases, 2)
 		tween.start()
-	elif (Player == "Player2" and Area_Player2.bottom_Right == true):
-		is_coffee = false
-		t_Cake.set_hidden(false)
-		tween.follow_method(t_Cake, "set_pos", Cake_Origin, Player2, "get_pos", 2, state.trans, state.eases)
-		tween.targeting_method(t_Cake, "set_pos", Player2, "get_pos", Cake_Origin, 2, state.trans, state.eases, 2)
-		tween.start()
+	elif (get_node("Tween/Cake") != null):
+		var Cake_Origin = get_node("Tween/Cake").get_pos()
+		var t_Cake = get_node("Tween/Cake")
+		if (Player == "Player2" and Area_Player2.bottom_Right == true and get_node("Tween/Cake") != null):
+			is_coffee = false
+			t_Cake.set_hidden(false)
+			tween.follow_method(t_Cake, "set_pos", Cake_Origin, Player2, "get_pos", 2, state.trans, state.eases)
+			tween.targeting_method(t_Cake, "set_pos", Player2, "get_pos", Cake_Origin, 2, state.trans, state.eases, 2)
+			tween.start()
 	elif (Player == "Player1"):
 		is_coffee = true
 		t_Coffee.set_hidden(false)
@@ -178,8 +194,19 @@ func _on_play_Button_pressed():
 # Reset the level
 func _on_reset_Button_pressed():
 	var levelname = get_tree().get_current_scene().get_name()
-	var level = str("res://Scenes/" + levelname + ".tscn")
+	var level = str("res://Scenes/Level_" + levelname + ".tscn")
 	get_tree().change_scene(level)
+
+func _on_Next_Button_Pressed(level_Number):
+	get_node("Next").set_disabled(true)
+	var level = str("res://Scenes/Level_" + level_Number + ".tscn")
+	get_tree().change_scene(level)
+
+
+func _end_Level():
+	get_node("End").set_hidden(false)
+	get_node("Next").set_hidden(false)
+	get_node("Next").set_disabled(false)
 
 #Function thats called when a player collides with the boxes 
 ### TODO fix issue with imputting too many arguments
@@ -190,9 +217,10 @@ func change_Value(name, name2, name3, name4, name5):
 	var c_Con_Left = get_node("Coffee_Con_Left")
 	var Player2_Value = Player2.get_Coffee()
 	
-	if (name5 == "Under_Left" and Player2_Value >= 1):
+	if (name5 == "Under_Left" and Player2_Value == "A"):
 		Player2.subtract_Coffee()
-		c_Con_Left.add_Coffee()
+		c_Con_Left.add_Coffee("Val")
+		get_node("Player2_Value").update_Text("a", "Coffee_Con_Left")
 		
 	if (name5 == "Bottom_Left"):
 		Area_Player2.bottom_Left = true

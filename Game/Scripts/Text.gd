@@ -29,9 +29,18 @@ func _process(delta):
 
 func update_Text(Type, Player):
 	var Player_Num = str("../" + Player)
+	var Player_Value = str("../Player2_Value")
+	var Player = get_node(Player_Num)
+	var Value = str(Player.get_Coffee())
+	var Text = str("\n" + Type + " = " + Value)
+	
+	get_node(Player_Value).append_bbcode(Text)
+
+func update_Counter_Text(Type, Player):
+	var Player_Num = str("../" + Player)
 	var Player_Value = str("../" + Player + "_Value")
 	var Player = get_node(Player_Num)
 	var Value = str(Player.get_Coffee())
-	var Text = str("\n" + Type + "Value =" + Value)
+	var Text = str("\n" + Type + " = " + Value)
 	
 	get_node(Player_Value).append_bbcode(Text)

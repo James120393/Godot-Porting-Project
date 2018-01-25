@@ -66,7 +66,7 @@ extents = Vector2( 13.2793, 36.0589 )
 custom_solver_bias = 0.0
 extents = Vector2( 13.5758, 37.6162 )
 
-[node name="game" type="Control"]
+[node name="0-1" type="Control"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -111,7 +111,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 0, 1, 0, 2, 4, 3, 4, 4, 4, 5, 4, 6, 4, 7, 4, 8, 4, 9, 4, 10, 4, 11, 4, 12, 4, 13, 4, 14, 4, 15, 4, 16, 4, 17, 4, 18, 0, 19, 0, 65536, 0, 65537, 0, 65538, 4, 65539, 4, 65540, 4, 65541, 4, 65542, 4, 65543, 4, 65544, 4, 65545, 4, 65546, 4, 65547, 4, 65548, 4, 65549, 4, 65550, 4, 65551, 4, 65552, 4, 65553, 4, 65554, 0, 65555, 0, 131072, 0, 131073, 0, 131074, 4, 131075, 4, 131076, 4, 131077, 4, 131078, 4, 131079, 4, 131080, 4, 131081, 4, 131082, 4, 131083, 4, 131084, 4, 131085, 4, 131086, 4, 131087, 4, 131088, 4, 131089, 4, 131090, 0, 131091, 0, 196608, 0, 196609, 0, 196610, 4, 196611, 4, 196612, 4, 196613, 4, 196614, 4, 196615, 4, 196616, 4, 196617, 4, 196618, 4, 196619, 4, 196620, 4, 196621, 4, 196622, 4, 196623, 4, 196624, 4, 196625, 4, 196626, 0, 196627, 0, 262144, 0, 262145, 0, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 8, 262153, 7, 262154, 7, 262155, 1, 262156, 1, 262157, 1, 262158, 1, 262159, 1, 262160, 1, 262161, 1, 262162, 0, 262163, 0, 327680, 0, 327681, 0, 327682, 4, 327683, 4, 327684, 4, 327685, 4, 327686, 4, 327687, 4, 327688, 4, 327689, 4, 327690, 4, 327691, 4, 327692, 4, 327693, 4, 327694, 4, 327695, 4, 327696, 4, 327697, 4, 327698, 0, 327699, 0, 393216, 0, 393217, 0, 393218, 4, 393219, 4, 393220, 4, 393221, 4, 393222, 4, 393223, 4, 393224, 4, 393225, 4, 393226, 4, 393227, 4, 393228, 4, 393229, 4, 393230, 4, 393231, 4, 393232, 4, 393233, 4, 393234, 0, 393235, 0, 458752, 0, 458753, 0, 458754, 4, 458755, 4, 458756, 4, 458757, 4, 458758, 4, 458759, 4, 458760, 4, 458761, 4, 458762, 4, 458763, 4, 458764, 4, 458765, 4, 458766, 4, 458767, 4, 458768, 4, 458769, 4, 458770, 0, 458771, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 2, 524297, 0, 524298, 5, 524299, 0, 524300, 0, 524301, 0, 524302, 0, 524303, 0, 524304, 0, 524305, 0, 524306, 0, 524307, 0 )
+tile_data = IntArray( 0, 0, 1, 0, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 10, 1, 11, 1, 12, 1, 13, 1, 14, 1, 15, 1, 16, 1, 17, 1, 18, 0, 19, 0, 65536, 0, 65537, 0, 65538, 4, 65539, 4, 65540, 4, 65541, 4, 65542, 4, 65543, 4, 65544, 4, 65545, 4, 65546, 4, 65547, 4, 65548, 4, 65549, 4, 65550, 4, 65551, 4, 65552, 4, 65553, 4, 65554, 0, 65555, 0, 131072, 0, 131073, 0, 131074, 4, 131075, 4, 131076, 4, 131077, 4, 131078, 4, 131079, 4, 131080, 4, 131081, 4, 131082, 4, 131083, 4, 131084, 4, 131085, 4, 131086, 4, 131087, 4, 131088, 4, 131089, 4, 131090, 0, 131091, 0, 196608, 0, 196609, 0, 196610, 4, 196611, 4, 196612, 4, 196613, 4, 196614, 4, 196615, 4, 196616, 4, 196617, 4, 196618, 4, 196619, 4, 196620, 4, 196621, 4, 196622, 4, 196623, 4, 196624, 4, 196625, 4, 196626, 0, 196627, 0, 262144, 0, 262145, 0, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 8, 262153, 7, 262154, 1, 262155, 1, 262156, 1, 262157, 1, 262158, 1, 262159, 1, 262160, 1, 262161, 1, 262162, 0, 262163, 0, 327680, 0, 327681, 0, 327682, 4, 327683, 4, 327684, 4, 327685, 4, 327686, 4, 327687, 4, 327688, 4, 327689, 4, 327690, 4, 327691, 4, 327692, 4, 327693, 4, 327694, 4, 327695, 4, 327696, 4, 327697, 4, 327698, 0, 327699, 0, 393216, 0, 393217, 0, 393218, 4, 393219, 4, 393220, 4, 393221, 4, 393222, 4, 393223, 4, 393224, 4, 393225, 4, 393226, 4, 393227, 4, 393228, 4, 393229, 4, 393230, 4, 393231, 4, 393232, 4, 393233, 4, 393234, 0, 393235, 0, 458752, 0, 458753, 0, 458754, 4, 458755, 4, 458756, 4, 458757, 4, 458758, 4, 458759, 4, 458760, 4, 458761, 4, 458762, 4, 458763, 4, 458764, 4, 458765, 4, 458766, 4, 458767, 4, 458768, 4, 458769, 4, 458770, 0, 458771, 0, 524288, 0, 524289, 0, 524290, 1, 524291, 1, 524292, 1, 524293, 1, 524294, 1, 524295, 1, 524296, 2, 524297, 1, 524298, 1, 524299, 1, 524300, 1, 524301, 1, 524302, 1, 524303, 1, 524304, 1, 524305, 1, 524306, 0, 524307, 0, 589824, 0, 589825, 0, 589826, 0, 589827, 0, 589828, 0, 589829, 0, 589830, 0, 589831, 0, 589832, 0, 589833, 0, 589834, 0, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0, 589840, 0, 589841, 0, 589842, 0, 589843, 0 )
 script/script = ExtResource( 4 )
 
 [node name="Player2_Value" type="RichTextLabel" parent="."]
@@ -308,7 +308,6 @@ texture = ExtResource( 12 )
 
 [node name="Tween" type="Tween" parent="."]
 
-editor/display_folded = true
 playback/process_mode = 1
 playback/active = false
 playback/repeat = false
@@ -319,12 +318,6 @@ playback/speed = 1.0
 transform/pos = Vector2( 436.415, 575.019 )
 transform/scale = Vector2( 0.46875, 0.46875 )
 texture = ExtResource( 11 )
-
-[node name="Cake" type="Sprite" parent="Tween"]
-
-transform/pos = Vector2( 538.685, 574.093 )
-transform/scale = Vector2( 0.626853, 0.637161 )
-texture = ExtResource( 12 )
 
 [node name="Bottom_Left" type="Area2D" parent="."]
 
@@ -457,7 +450,6 @@ _update_shape_index = 0
 
 [node name="Info" type="Panel" parent="."]
 
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -508,11 +500,8 @@ margin/right = 560.0
 margin/bottom = 360.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode/enabled = false
-bbcode/bbcode = "World 1, Level 1
-
-Addy needs to move once cup of coffee
-from the preperation area to Val at the 
-counter."
+bbcode/bbcode = "More customers have arrived! Help 
+Val get two cups of coffee to Addy."
 visible_characters = -1
 percent_visible = 1.0
 
@@ -543,10 +532,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 911.0
-margin/top = 150.0
-margin/right = 1184.0
-margin/bottom = 408.0
+margin/left = 910.0
+margin/top = 220.0
+margin/right = 1183.0
+margin/bottom = 478.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -556,5 +545,50 @@ textures/hover = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 0.75, 0.75 )
 params/stretch_mode = 0
+
+[node name="Prep" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 950.0
+margin/top = 570.0
+margin/right = 1012.0
+margin/bottom = 584.0
+text = "Prep"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Counter" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 940.0
+margin/top = 370.0
+margin/right = 1023.0
+margin/bottom = 384.0
+text = "Counter"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Table" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 950.0
+margin/top = 170.0
+margin/right = 1017.0
+margin/bottom = 184.0
+text = "Table"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

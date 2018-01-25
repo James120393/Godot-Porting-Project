@@ -3,8 +3,8 @@ extends RigidBody2D
 export var Player_speed = 200
 export var Player_jump_height = 200
 
-var coffee = int()
-var cake = int()
+var coffee = str()
+var cake = str()
 
 var Move_Right = Input.is_action_pressed("Player2_Move_Right")
 var Move_Left = Input.is_action_pressed("Player2_Move_Left")
@@ -33,23 +33,22 @@ func _fixed_process(delta):
 func change_Player_Sprite():
 	var Player2 = get_node("Player2_Sprite")
 	
-	if (get_Coffee() >= 1):
+	if (get_Coffee() == "A"):
 		Player2.set_texture(load("res://Art/Player2_Sprite_Plate_Coffee.png"))
-	elif (get_Cake() >= 1):
+	elif (get_Cake() == "B"):
 		Player2.set_texture(load("res://Art/Player2_Sprite_Plate_Cake.png"))
 	else:
 		Player2.set_texture(load("res://Art/Player2_Sprite.png"))
 
 #Add coffee
 func add_Coffee():
-	coffee += 1
-	get_node("../Player2_Value").update_Text("Coffee", "Player2")
+	coffee = "A"
+	get_node("../Player2_Value").update_Text("Val", "Player2")
 	change_Player_Sprite()
 
 #Subtract coffee
 func subtract_Coffee():
-	coffee -= 1
-	get_node("../Player2_Value").update_Text("Coffee", "Player2")
+	coffee = " "
 	change_Player_Sprite()
 
 func get_Coffee():
@@ -57,14 +56,14 @@ func get_Coffee():
 
 #Add cake
 func add_Cake():
-	cake += 1
-	get_node("../Player2_Value").update_Text("Cake", "Player2")
+	cake = "B"
+	get_node("../Player2_Value").update_Text("Val", "Player2")
 	change_Player_Sprite()
 
 #Subtract cake
 func subtract_Cake():
-	cake -= 1
-	get_node("../Player2_Value").update_Text("Cake", "Player2")
+	cake = " "
+	get_node("../Player2_Value").update_Text("Val", "Player2")
 	change_Player_Sprite()
 
 func get_Cake():

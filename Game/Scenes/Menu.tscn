@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=2]
@@ -13,8 +13,7 @@
 [ext_resource path="res://Art/Ui/Buttons/Cross-pressed.png" type="Texture" id=11]
 [ext_resource path="res://Art/Ui/Buttons/Cross-hover.png" type="Texture" id=12]
 [ext_resource path="res://Art/Ui/Buttons/Level_Select.png" type="Texture" id=13]
-[ext_resource path="res://Art/Ui/Buttons/Level_Select-faded.png" type="Texture" id=14]
-[ext_resource path="res://Art/Ui/Buttons/Level_Select-hover.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/Level_Selector.gd" type="Script" id=14]
 
 [node name="Menu" type="Panel"]
 
@@ -111,6 +110,7 @@ params/stretch_mode = 0
 
 [node name="Cup1" type="TextureFrame" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -254,7 +254,6 @@ max_lines_visible = -1
 
 [node name="LevelSelectBG" type="TextureFrame" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 2.0
 focus/ignore_mouse = true
@@ -298,14 +297,14 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 158.0
-margin/top = 7.0
-margin/right = 678.0
-margin/bottom = 107.0
+margin/left = 60.0
+margin/top = 6.0
+margin/right = 640.0
+margin/bottom = 112.0
 custom_constants/separation = 5
 alignment = 0
 
-[node name="Level1" type="TextureButton" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
+[node name="0-0" type="Button" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
@@ -314,18 +313,17 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 100.0
-margin/bottom = 100.0
+margin/right = 112.0
+margin/bottom = 106.0
 toggle_mode = false
+click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 13 )
-textures/pressed = ExtResource( 14 )
-textures/hover = ExtResource( 15 )
-params/resize_mode = 0
-params/stretch_mode = 0
+icon = ExtResource( 13 )
+flat = true
+script/script = ExtResource( 14 )
 
-[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/Level1"]
+[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/0-0"]
 
 rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = true
@@ -341,27 +339,26 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Level2" type="TextureButton" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
+[node name="0-1" type="Button" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 105.0
+margin/left = 117.0
 margin/top = 0.0
-margin/right = 205.0
-margin/bottom = 100.0
+margin/right = 229.0
+margin/bottom = 106.0
 toggle_mode = false
+click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 13 )
-textures/pressed = ExtResource( 14 )
-textures/hover = ExtResource( 15 )
-params/resize_mode = 0
-params/stretch_mode = 0
+icon = ExtResource( 13 )
+flat = true
+script/script = ExtResource( 14 )
 
-[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/Level2"]
+[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/0-1"]
 
 rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = true
@@ -377,27 +374,26 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Level3" type="TextureButton" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
+[node name="0-2" type="Button" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 210.0
+margin/left = 234.0
 margin/top = 0.0
-margin/right = 310.0
-margin/bottom = 100.0
+margin/right = 346.0
+margin/bottom = 106.0
 toggle_mode = false
+click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 13 )
-textures/pressed = ExtResource( 14 )
-textures/hover = ExtResource( 15 )
-params/resize_mode = 0
-params/stretch_mode = 0
+icon = ExtResource( 13 )
+flat = true
+script/script = ExtResource( 14 )
 
-[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/Level3"]
+[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/0-2"]
 
 rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = true
@@ -413,27 +409,26 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Level4" type="TextureButton" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
+[node name="0-3" type="Button" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 315.0
+margin/left = 351.0
 margin/top = 0.0
-margin/right = 415.0
-margin/bottom = 100.0
+margin/right = 463.0
+margin/bottom = 106.0
 toggle_mode = false
+click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 13 )
-textures/pressed = ExtResource( 14 )
-textures/hover = ExtResource( 15 )
-params/resize_mode = 0
-params/stretch_mode = 0
+icon = ExtResource( 13 )
+flat = true
+script/script = ExtResource( 14 )
 
-[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/Level4"]
+[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/0-3"]
 
 rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = true
@@ -449,27 +444,26 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Level5" type="TextureButton" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
+[node name="1-0" type="Button" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 420.0
+margin/left = 468.0
 margin/top = 0.0
-margin/right = 520.0
-margin/bottom = 100.0
+margin/right = 580.0
+margin/bottom = 106.0
 toggle_mode = false
+click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 13 )
-textures/pressed = ExtResource( 14 )
-textures/hover = ExtResource( 15 )
-params/resize_mode = 0
-params/stretch_mode = 0
+icon = ExtResource( 13 )
+flat = true
+script/script = ExtResource( 14 )
 
-[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/Level5"]
+[node name="Label" type="Label" parent="LevelSelectBG/ScrollContainer/Control/HBoxContainer/1-0"]
 
 rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = true

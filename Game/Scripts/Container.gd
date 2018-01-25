@@ -1,17 +1,17 @@
 extends Node2D
 
-var coffee = int()
-var cake = int()
+var coffee = str()
+var cake = str()
 
 func _process(delta):
 	
-	if (coffee >= 1):
+	if (coffee != ""):
 		get_node("Coffee_Sprite").set_hidden(false)
 	else:
 		get_node("Coffee_Sprite").set_hidden(true)
 
 
-	if (cake >= 1):
+	if (cake != ""):
 		get_node("Cake_Sprite").set_hidden(false)
 	else:
 		get_node("Cake_Sprite").set_hidden(true)
@@ -20,12 +20,12 @@ func _ready():
 	set_process(true)
 
 #Add coffee
-func add_Coffee():
-	coffee += 1
+func add_Coffee(name):
+	coffee = name
 
 #Subtract coffee
-func subtract_Coffee():
-	coffee -= 1
+func subtract_Coffee(name):
+	coffee = name
 
 func get_Coffee():
 	return coffee

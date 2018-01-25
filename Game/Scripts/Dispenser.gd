@@ -1,18 +1,18 @@
 extends KinematicBody2D
 
 # Member variables
-const speed = 8.0
+#const speed = 8.0
 
-var begin = Vector2()
-var end = Vector2()
-var path = []
+#var begin = Vector2()
+#var end = Vector2()
+#var path = []
 
-var Visible = true
-var Add = true
+#var Visible = true
+#var Add = true
 
-var Player = null
-var Coffee = null
-var Text = null
+#var Player = null
+#var Coffee = null
+#var Text = null
 
 func _process(delta):
 	pass
@@ -53,44 +53,45 @@ func _process(delta):
 
 
 
-func _update_path():
+#func _update_path():
 #	var p = get_simple_path(begin, end, true)
 #	path = Array(p) # Vector2array too complex to use, convert to regular array
 #	path.invert()
 
-	set_process(true)
+#	set_process(true)
 
 
 func _input(event):
-	var Player2_POS = get_node("../Player2").get_pos()
-	var Player1_POS = get_node("../Coffee_Con").get_pos()
-	
-	if (Input.is_action_pressed("Player2_Pickup")):
-		begin = self.get_pos()
-		# Mouse to local navigation coordinates
-		end = Player2_POS - get_pos()
-		
-		Player = get_node("../Player2")
-		Text = get_node("../Player2_Value")
-		Coffee = get_node("Coffee_Sprite")
-		Visible = true
-		Add = true
-		
-		_update_path()
+	pass
+#	var Player2_POS = get_node("../Player2").get_pos()
+#	var Player1_POS = get_node("../Coffee_Con").get_pos()
+#	
+#	if (Input.is_action_pressed("Player2_Pickup")):
+#		begin = self.get_pos()
+#		# Mouse to local navigation coordinates
+#		end = Player2_POS - get_pos()
+#		
+#		Player = get_node("../Player2")
+#		Text = get_node("../Player2_Value")
+#		Coffee = get_node("Coffee_Sprite")
+#		Visible = true
+#		Add = true
+#		
+#		_update_path()
+#
+#	if (Input.is_action_pressed("Player2_Drop") and get_node("../Player2")._get_Coffee() >= 1):
+#		begin = Player2_POS
+#		# Mouse to local navigation coordinates
+#		end = Player1_POS - get_pos()
+#
+#		Player = get_node("../Player1")
+#		Text = get_node("../Player1_Value")
+#		Coffee = get_node("Coffee_Sprite")
+#		Visible = false
+#		Add = false
 
-	if (Input.is_action_pressed("Player2_Drop") and get_node("../Player2")._get_Coffee() >= 1):
-		begin = Player2_POS
-		# Mouse to local navigation coordinates
-		end = Player1_POS - get_pos()
-
-		Player = get_node("../Player1")
-		Text = get_node("../Player1_Value")
-		Coffee = get_node("Coffee_Sprite")
-		Visible = false
-		Add = false
-
-		_update_path()
-
-
+#		_update_path()
+#
+#
 func _ready():
 	set_process_input(true)

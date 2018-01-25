@@ -17,8 +17,6 @@ func _input(event):
 		_on_info_Button_pressed()
 	if get_node("Play").is_pressed():
 		_on_play_Button_pressed()
-	if get_node("LevelSelectBG/ScrollContainer/Control/HBoxContainer/Level1").is_pressed():
-		_on_Level1_Buttone_pressed()
 
 func _on_info_Button_pressed():
 	get_node("InfoBG").set_hidden(false)
@@ -32,6 +30,7 @@ func _on_cross_Button_pressed():
 func _on_play_Button_pressed():
 	get_node("LevelSelectBG").set_hidden(false)
 	
-func _on_Level1_Buttone_pressed():
-	get_tree().change_scene("res://Scenes/game.tscn")
-	
+func load_Level(level_Number):
+	var level = str("res://Scenes/Level_" + level_Number + ".tscn")
+	get_tree().change_scene(level)
+

@@ -6,5 +6,5 @@ extends Area2D
 
 func _ready():
 	var game = get_parent()
-	self.connect("body_enter_shape", game, "change_Value", [get_name()]) ## TODO clear all but the last argument in the array then pass it to the function
+	self.connect("body_enter_shape", game, "change_Value", [self.get_name()]) ## TODO clear all but the last argument in the array then pass it to the function
 	self.connect("body_exit_shape", game, "reset_Pickup")

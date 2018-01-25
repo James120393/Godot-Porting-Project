@@ -4,6 +4,7 @@ export var Player_speed = 200
 export var Player_jump_height = 200
 
 var coffee = int()
+var cake = int()
 
 var Move_Right = Input.is_action_pressed("Player2_Move_Right")
 var Move_Left = Input.is_action_pressed("Player2_Move_Left")
@@ -33,21 +34,38 @@ func change_Player_Sprite():
 	var Player2 = get_node("Player2_Sprite")
 	
 	if (get_Coffee() >= 1):
-		Player2.set_texture(load("res://Art/Player2-Sprite-Plate-Cofee.png"))
+		Player2.set_texture(load("res://Art/Player2_Sprite_Plate_Coffee.png"))
+	elif (get_Cake() >= 1):
+		Player2.set_texture(load("res://Art/Player2_Sprite_Plate_Cake.png"))
 	else:
-		Player2.set_texture(load("res://Art/Player2-Sprite.png"))
+		Player2.set_texture(load("res://Art/Player2_Sprite.png"))
 
 #Add coffee
 func add_Coffee():
 	coffee += 1
-	get_node("../Player2_Value")._update_Player2_Text()
+	get_node("../Player2_Value").update_Text("Coffee", "Player2")
 	change_Player_Sprite()
 
 #Subtract coffee
 func subtract_Coffee():
 	coffee -= 1
-	get_node("../Player2_Value")._update_Player2_Text()
+	get_node("../Player2_Value").update_Text("Coffee", "Player2")
 	change_Player_Sprite()
 
 func get_Coffee():
 	return coffee
+
+#Add cake
+func add_Cake():
+	cake += 1
+	get_node("../Player2_Value").update_Text("Cake", "Player2")
+	change_Player_Sprite()
+
+#Subtract cake
+func subtract_Cake():
+	cake -= 1
+	get_node("../Player2_Value").update_Text("Cake", "Player2")
+	change_Player_Sprite()
+
+func get_Cake():
+	return cake

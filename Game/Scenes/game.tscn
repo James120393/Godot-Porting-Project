@@ -1,19 +1,24 @@
-[gd_scene load_steps=24 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://Scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=2]
 [ext_resource path="res://Art/Tile_set.tres" type="TileSet" id=3]
-[ext_resource path="res://Scripts/Text.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Player1.gd" type="Script" id=5]
-[ext_resource path="res://Art/Player1-Sprite.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/Player2.gd" type="Script" id=7]
-[ext_resource path="res://Art/Player2-Sprite.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/Container.gd" type="Script" id=9]
-[ext_resource path="res://Art/Cup.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/Area.gd" type="Script" id=11]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=12]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=13]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Text.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Player1.gd" type="Script" id=6]
+[ext_resource path="res://Art/Player1_Sprite.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Player2.gd" type="Script" id=8]
+[ext_resource path="res://Art/Player2_Sprite.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Container.gd" type="Script" id=10]
+[ext_resource path="res://Art/Cup.png" type="Texture" id=11]
+[ext_resource path="res://Art/Cake.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Area.gd" type="Script" id=13]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=14]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=15]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=16]
+[ext_resource path="res://Art/Ui/Buttons/Reset_Button.png" type="Texture" id=17]
+[ext_resource path="res://Art/Ui/Buttons/Reset_Button_Pressed.png" type="Texture" id=18]
+[ext_resource path="res://Art/Ui/Buttons/Reset_Button_Hover.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -41,22 +46,22 @@ extents = Vector2( 22.8533, 6.14148 )
 custom_solver_bias = 0.0
 extents = Vector2( 24.7778, 7.11682 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 26.6091, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.4686, 34.1123 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.2793, 36.0589 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.5758, 37.6162 )
@@ -107,6 +112,7 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 0, 0, 1, 0, 2, 4, 3, 4, 4, 4, 5, 4, 6, 4, 7, 4, 8, 4, 9, 4, 10, 4, 11, 4, 12, 4, 13, 4, 14, 4, 15, 4, 16, 4, 17, 4, 18, 0, 19, 0, 65536, 0, 65537, 0, 65538, 4, 65539, 4, 65540, 4, 65541, 4, 65542, 4, 65543, 4, 65544, 4, 65545, 4, 65546, 4, 65547, 4, 65548, 4, 65549, 4, 65550, 4, 65551, 4, 65552, 4, 65553, 4, 65554, 0, 65555, 0, 131072, 0, 131073, 0, 131074, 4, 131075, 4, 131076, 4, 131077, 4, 131078, 4, 131079, 4, 131080, 4, 131081, 4, 131082, 4, 131083, 4, 131084, 4, 131085, 4, 131086, 4, 131087, 4, 131088, 4, 131089, 4, 131090, 0, 131091, 0, 196608, 0, 196609, 0, 196610, 4, 196611, 4, 196612, 4, 196613, 4, 196614, 4, 196615, 4, 196616, 4, 196617, 4, 196618, 4, 196619, 4, 196620, 4, 196621, 4, 196622, 4, 196623, 4, 196624, 4, 196625, 4, 196626, 0, 196627, 0, 262144, 0, 262145, 0, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 8, 262153, 7, 262154, 7, 262155, 1, 262156, 1, 262157, 1, 262158, 1, 262159, 1, 262160, 1, 262161, 1, 262162, 0, 262163, 0, 327680, 0, 327681, 0, 327682, 4, 327683, 4, 327684, 4, 327685, 4, 327686, 4, 327687, 4, 327688, 4, 327689, 4, 327690, 4, 327691, 4, 327692, 4, 327693, 4, 327694, 4, 327695, 4, 327696, 4, 327697, 4, 327698, 0, 327699, 0, 393216, 0, 393217, 0, 393218, 4, 393219, 4, 393220, 4, 393221, 4, 393222, 4, 393223, 4, 393224, 4, 393225, 4, 393226, 4, 393227, 4, 393228, 4, 393229, 4, 393230, 4, 393231, 4, 393232, 4, 393233, 4, 393234, 0, 393235, 0, 458752, 0, 458753, 0, 458754, 4, 458755, 4, 458756, 4, 458757, 4, 458758, 4, 458759, 4, 458760, 4, 458761, 4, 458762, 4, 458763, 4, 458764, 4, 458765, 4, 458766, 4, 458767, 4, 458768, 4, 458769, 4, 458770, 0, 458771, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 2, 524297, 0, 524298, 5, 524299, 0, 524300, 0, 524301, 0, 524302, 0, 524303, 0, 524304, 0, 524305, 0, 524306, 0, 524307, 0 )
+script/script = ExtResource( 4 )
 
 [node name="Player2_Value" type="RichTextLabel" parent="."]
 
@@ -114,15 +120,15 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 20.0
+margin/left = 15.0
 margin/top = 400.0
-margin/right = 110.0
+margin/right = 128.0
 margin/bottom = 600.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
 percent_visible = 1.0
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
 [node name="Player1_Value" type="RichTextLabel" parent="."]
 
@@ -130,15 +136,15 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 20.0
+margin/left = 13.0
 margin/top = 150.0
-margin/right = 110.0
+margin/right = 129.0
 margin/bottom = 350.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
 percent_visible = 1.0
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
 [node name="Player1" type="RigidBody2D" parent="."]
 
@@ -165,13 +171,13 @@ velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
-script/script = ExtResource( 5 )
+script/script = ExtResource( 6 )
 Player_speed = 200
 
 [node name="Player1_Sprite" type="Sprite" parent="Player1"]
 
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShapePlayer1" type="CollisionShape2D" parent="Player1"]
 
@@ -206,7 +212,7 @@ velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
-script/script = ExtResource( 7 )
+script/script = ExtResource( 8 )
 Player_speed = 200
 Player_jump_height = 200
 
@@ -214,7 +220,7 @@ Player_jump_height = 200
 
 transform/pos = Vector2( -0.209, 0.098999 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
 
@@ -227,7 +233,7 @@ _update_shape_index = 0
 [node name="Coffee_Dis" type="KinematicBody2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 440, 570 )
+transform/pos = Vector2( 437.799, 575.282 )
 transform/scale = Vector2( 0.78125, 0.78125 )
 input/pickable = false
 collision/layers = 0
@@ -246,39 +252,60 @@ enabled = true
 editor/display_folded = true
 transform/pos = Vector2( 437.346, 375.971 )
 transform/scale = Vector2( 0.78125, 0.78125 )
-script/script = ExtResource( 9 )
+script/script = ExtResource( 10 )
 
 [node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Left"]
 
 visibility/visible = false
 transform/scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
+
+[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Left"]
+
+visibility/visible = false
+transform/pos = Vector2( 0.458923, -7.3418 )
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 12 )
 
 [node name="Coffee_Con_Middle" type="Node2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 485.844, 375.372 )
 transform/scale = Vector2( 0.78125, 0.78125 )
-script/script = ExtResource( 9 )
+script/script = ExtResource( 10 )
 
 [node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Middle"]
 
 visibility/visible = false
 transform/scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
+
+[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Middle"]
+
+visibility/visible = false
+transform/pos = Vector2( 4.9165, -6.11621 )
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 12 )
 
 [node name="Coffee_Con_Right" type="Node2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 537.934, 375.971 )
 transform/scale = Vector2( 0.78125, 0.78125 )
-script/script = ExtResource( 9 )
+script/script = ExtResource( 10 )
 
 [node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Right"]
 
 visibility/visible = false
 transform/scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
+
+[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Right"]
+
+visibility/visible = false
+transform/pos = Vector2( 4.77649, -7.80063 )
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 12 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -292,7 +319,13 @@ playback/speed = 1.0
 
 transform/pos = Vector2( 436.415, 575.019 )
 transform/scale = Vector2( 0.46875, 0.46875 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
+
+[node name="Cake" type="Sprite" parent="Tween"]
+
+transform/pos = Vector2( 538.685, 574.093 )
+transform/scale = Vector2( 0.626853, 0.637161 )
+texture = ExtResource( 12 )
 
 [node name="Bottom_Left" type="Area2D" parent="."]
 
@@ -306,7 +339,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 11 )
+script/script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Left"]
 
@@ -327,7 +360,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 11 )
+script/script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Right"]
 
@@ -342,18 +375,18 @@ editor/display_folded = true
 transform/pos = Vector2( 440, 420 )
 transform/scale = Vector2( 0.75, 0.75 )
 input/pickable = true
-shapes/0/shape = SubResource( 9 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 11 )
+script/script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Under_Left"]
 
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 trigger = true
 _update_shape_index = 0
 
@@ -363,19 +396,19 @@ editor/display_folded = true
 transform/pos = Vector2( 431.434, 318.528 )
 transform/scale = Vector2( 0.75, 0.75 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.774841, -17.4659 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 11 )
+script/script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Left"]
 
 transform/pos = Vector2( 0.774841, -17.4659 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 trigger = true
 _update_shape_index = 0
 
@@ -385,19 +418,19 @@ editor/display_folded = true
 transform/pos = Vector2( 489.283, 321.038 )
 transform/scale = Vector2( 0.75, 0.75 )
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 8 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.03314, -18.499 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 11 )
+script/script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Middle"]
 
 transform/pos = Vector2( -1.03314, -18.499 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 trigger = true
 _update_shape_index = 0
 
@@ -407,19 +440,19 @@ editor/display_folded = true
 transform/pos = Vector2( 537.491, 322.472 )
 transform/scale = Vector2( 0.75, 0.75 )
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.516602, -19.2738 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 11 )
+script/script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Right"]
 
 transform/pos = Vector2( 0.516602, -19.2738 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 trigger = true
 _update_shape_index = 0
 
@@ -500,9 +533,9 @@ margin/bottom = 518.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 12 )
-textures/pressed = ExtResource( 13 )
-textures/hover = ExtResource( 14 )
+textures/normal = ExtResource( 14 )
+textures/pressed = ExtResource( 15 )
+textures/hover = ExtResource( 16 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -520,9 +553,9 @@ margin/bottom = 412.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 12 )
-textures/pressed = ExtResource( 13 )
-textures/hover = ExtResource( 14 )
+textures/normal = ExtResource( 17 )
+textures/pressed = ExtResource( 18 )
+textures/hover = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 0.75, 0.75 )
 params/stretch_mode = 0

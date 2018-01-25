@@ -216,7 +216,7 @@ trigger = false
 transform/pos = Vector2( 40, 230 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 1660, 345, 50, 50 )
+region_rect = Rect2( 1650, 345, 50, 50 )
 
 [node name="StaticBodyCake-P" type="StaticBody2D" parent="Cake_Pointer"]
 

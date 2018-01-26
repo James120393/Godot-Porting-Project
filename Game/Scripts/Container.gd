@@ -24,25 +24,25 @@ func add_Coffee(name):
 	coffee = name
 
 #Subtract coffee
-func subtract_Coffee(name):
-	coffee = name
+func subtract_Coffee():
+	coffee = " "
 
 func get_Coffee():
 	return coffee
 
 #Add cake
-func add_Cake():
-	cake += 1
+func add_Cake(name):
+	cake = name
 
 #Subtract cake
 func subtract_Cake():
-	cake -= 1
+	cake = " "
 
 func get_Cake():
 	return cake
 
 func is_full():
-	if (coffee >= 1 or cake >= 1):
+	if (coffee != " " or cake != " "):
 		return true
 	else:
 		return false

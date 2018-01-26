@@ -12,7 +12,8 @@ var Jump = Input.is_action_pressed("Player2_Jump")
 
 func _ready():
 	# Initalization here
-	coffee = 0
+	coffee = ""
+	cake = ""
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
@@ -30,26 +31,25 @@ func _fixed_process(delta):
 		set_linear_velocity(Vector2(0,get_linear_velocity().y))
 
 
-func change_Player_Sprite():
+func change_Player_Sprite(name):
 	var Player2 = get_node("Player2_Sprite")
-	
-	if (get_Coffee() == "A"):
-		Player2.set_texture(load("res://Art/Player2_Sprite_Plate_Coffee.png"))
-	elif (get_Cake() == "B"):
-		Player2.set_texture(load("res://Art/Player2_Sprite_Plate_Cake.png"))
+	var sprite_Name = str("res://Art/Player2_Sprite" + name)
+	if (get_Coffee() != "" or get_Cake() != ""):
+		Player2.set_texture(load(sprite_Name))
 	else:
 		Player2.set_texture(load("res://Art/Player2_Sprite.png"))
+
 
 #Add coffee
 func add_Coffee():
 	coffee = "A"
 	get_node("../Player2_Value").update_Text("Val", "Player2")
-	change_Player_Sprite()
+	change_Player_Sprite("_Plate_Coffee.png")
 
 #Subtract coffee
 func subtract_Coffee():
-	coffee = " "
-	change_Player_Sprite()
+	coffee = ""
+	change_Player_Sprite("")
 
 func get_Coffee():
 	return coffee
@@ -58,13 +58,19 @@ func get_Coffee():
 func add_Cake():
 	cake = "B"
 	get_node("../Player2_Value").update_Text("Val", "Player2")
-	change_Player_Sprite()
+	change_Player_Sprite("_Plate_Cake.png")
 
 #Subtract cake
 func subtract_Cake():
-	cake = " "
+	cake = ""
 	get_node("../Player2_Value").update_Text("Val", "Player2")
-	change_Player_Sprite()
+	change_Player_Sprite("")
 
 func get_Cake():
 	return cake
+
+func has_Value():
+	if (coffee != ""):
+		return coffee
+	else:
+		return false

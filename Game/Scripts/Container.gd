@@ -25,7 +25,7 @@ func add_Coffee(name):
 
 #Subtract coffee
 func subtract_Coffee():
-	coffee = " "
+	coffee = ""
 
 func get_Coffee():
 	return coffee
@@ -36,13 +36,13 @@ func add_Cake(name):
 
 #Subtract cake
 func subtract_Cake():
-	cake = " "
+	cake = ""
 
 func get_Cake():
 	return cake
 
 func is_full():
-	if (coffee != " " or cake != " "):
+	if (coffee != "" or cake != ""):
 		return true
 	else:
 		return false

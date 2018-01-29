@@ -254,6 +254,7 @@ max_lines_visible = -1
 
 [node name="LevelSelectBG" type="TextureFrame" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 2.0
 focus/ignore_mouse = true

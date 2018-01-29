@@ -70,7 +70,7 @@ func get_Cake():
 	return cake
 
 func has_Value():
-	if (coffee != ""):
-		return coffee
+	if (coffee != "" or cake != ""):
+		return true
 	else:
 		return false

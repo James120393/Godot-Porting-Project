@@ -189,6 +189,7 @@ _update_shape_index = 0
 
 [node name="Player2" type="RigidBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 160, 510 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
@@ -248,7 +249,6 @@ enabled = true
 
 [node name="Coffee_Con_Left" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 437.346, 375.971 )
 transform/scale = Vector2( 0.78125, 0.78125 )
 script/script = ExtResource( 10 )

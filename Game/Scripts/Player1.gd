@@ -26,9 +26,9 @@ func _fixed_process(delta):
 func change_Player_Sprite():
 	var Player1 = get_node("Player1_Sprite")
 	
-	if (get_Coffee() != " "):
+	if (get_Coffee() != ""):
 		Player1.set_texture(load("res://Art/Player1_Sprite_Plate_Coffee.png"))
-	elif (get_Cake() != " "):
+	elif (get_Cake() != ""):
 		Player1.set_texture(load("res://Art/Player1_Sprite_Plate_Cake.png"))
 	else:
 		Player1.set_texture(load("res://Art/Player1_Sprite.png"))
@@ -44,7 +44,7 @@ func add_Coffee():
 
 #Subtract coffee
 func subtract_Coffee():
-	coffee = " "
+	coffee = ""
 	get_node("../Player1_Value").update_Text("Coffee", "Player1")
 	change_Player_Sprite()
 
@@ -59,7 +59,7 @@ func add_Cake():
 
 #Subtract cake
 func subtract_Cake():
-	cake = " "
+	cake = ""
 	get_node("../Player1_Value").update_Text("Cake", "Player1")
 	change_Player_Sprite()
 
@@ -67,7 +67,7 @@ func get_Cake():
 	return cake
 
 func has_Value():
-	if (coffee != " " or cake != " "):
+	if (coffee != "" or cake != ""):
 		return true
 	else:
 		return false

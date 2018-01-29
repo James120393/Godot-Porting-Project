@@ -4,6 +4,7 @@ onready var tween = get_node("Tween")
 onready var t_Coffee = get_node("Tween/Coffee")
 onready var Player1 = get_node("Player1")
 onready var Player2 = get_node("Player2")
+onready var Coffee_Origin = get_node("Tween/Coffee").get_pos()
 
 var Player1_CanPickUp = false
 var Player2_CanPickUp = false
@@ -39,7 +40,6 @@ func _ready():
 func _input(event):
 	var current_Level = get_tree().get_current_scene().get_name()
 	var next = get_node("Next")
-	var Coffee_Origin = get_node("Tween/Coffee").get_pos()
 	var origin_Top = get_node("Coffee_Con_Left").get_pos()
 	
 	if (Input.is_action_pressed("Player2_Pickup") and Player2_CanPickUp == true):
@@ -56,8 +56,8 @@ func _input(event):
 ### TODO once the text reader is implemented change this to a function that reads the win conditions and compared it to the current condition
 	if (current_Level == "0-0" and get_node("Coffee_Con_Left").get_Coffee() == "Val"):
 		_end_Level()
-#	elif (current_Level == "0-1" and get_node("Coffee_Con_Left").get_Coffee() == "Val"):
-#		_end_Level()
+	elif (current_Level == "0-1" and get_node("Coffee_Con_Left").get_Coffee() == "Val" and get_node("Coffee_Con_Middle").get_Coffee() == "Addy"):
+		_end_Level()
 #	elif (current_Level == "0-2" and get_node("Coffee_Con_Left").get_Coffee() == "Val"):
 #		_end_Level()
 #	elif (current_Level == "0-3" and get_node("Coffee_Con_Left").get_Coffee() == "Val"):
@@ -122,6 +122,8 @@ func _process(delta):
 				tween.stop_all()
 				Player1.add_Cake()
 				tween.reset_all()
+				if (Area_Player1.top_Left == true):
+					get_node("Coffee_Con_Left").subtract_Coffee()
 			else:
 				pass
 		else:
@@ -131,7 +133,7 @@ func _process(delta):
 
 	# If player 1 has a value greater than 0 then they can place the value
 	# if the value is = to 0 then they can not
-	if (Player1.has_Value() == false):
+	if (Player1.has_Value() == true):
 		Player1_CanPlace = true
 	else:
 		Player1_CanPlace = false
@@ -144,19 +146,20 @@ func _On_Drop_Button_Pressed():
 	var c_Con_Rright = get_node("Coffee_Con_Right")
 	
 	# see which area the player is currently in
-	if (Player1.has_Value() == true and c_Con_Left.is_full() == false):
+	if (Player1.has_Value() == true):
 		if (Area_Player1.top_Left == true):
-			c_Con_Left.add_Coffee()
+			c_Con_Left.add_Coffee("Addy")
 			Player1.subtract_Coffee()
 		elif (Area_Player1.top_Middle == true):
-			c_Con_Middle.add_Coffee()
+			c_Con_Middle.add_Coffee("Addy")
+			get_node("Player2_Value").update_Text("a", "Coffee_Con_Middle")
 			Player1.subtract_Coffee()
 		elif (Area_Player1.top_Right == true):
-			c_Con_Rright.add_Coffee()
+			c_Con_Rright.add_Coffee("Addy")
 			Player1.subtract_Coffee()
 		else:
 			pass
-	elif (Player1.has_Value() == true and c_Con_Left.is_full() == false):
+	elif (Player1.has_Value() == true ):
 		if (Area_Player1.top_Left == true):
 			c_Con_Left.add_Cake()
 			Player1.subtract_Cake()
@@ -176,7 +179,7 @@ func _On_Pickup_Button_Pressed(Player, origin):
 	
 	# depending on what player pressed the pickup button play an animation
 	# Move the coffee to player 2
-	if (Player2.has_Value()Area_Player2.bottom_Left == true or Area_Player1.top_Left == true):
+	if (Player2.has_Value() == false and Area_Player2.bottom_Left == true or Player1.has_Value() == false and Area_Player1.top_Left == true):
 		is_coffee = true
 		t_Coffee.set_hidden(false)
 		tween.follow_method(t_Coffee, "set_pos", origin, Player, "get_pos", 0.5, state.trans, state.eases)

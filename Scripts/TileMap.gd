@@ -5,9 +5,6 @@ var height = 10
 var grid = []
 var file = File.new()
 var textMap = ""
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 
 func _ready():
 	print (width)
@@ -23,8 +20,3 @@ func _ready():
 		textMap = file.get_as_text()
 		file.close()
 	print (textMap)
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

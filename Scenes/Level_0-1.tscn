@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Art/Tile_set.tres" type="TileSet" id=2]
@@ -55,12 +55,7 @@ extents = Vector2( 13.4686, 34.1123 )
 custom_solver_bias = 0.0
 extents = Vector2( 13.2793, 36.0589 )
 
-[sub_resource type="RectangleShape2D" id=8]
-
-custom_solver_bias = 0.0
-extents = Vector2( 13.5758, 37.6162 )
-
-[node name="0-1" type="Control"]
+[node name="0-1" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -244,52 +239,55 @@ position = Vector2( 406.381, 302.023 )
 navpoly = SubResource( 2 )
 enabled = true
 
-[node name="Coffee_Con_Left" type="Node2D" parent="." index="6"]
+[node name="a" type="Node2D" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( 432.554, 274.539 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Left" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="a" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Left" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="a" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Middle" type="Node2D" parent="." index="7"]
+[node name="b" type="Node2D" parent="." index="7"]
 
+editor/display_folded = true
 position = Vector2( 484.13, 273.703 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="b" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="b" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Right" type="Node2D" parent="." index="8"]
+[node name="c" type="Node2D" parent="." index="8"]
 
+editor/display_folded = true
 position = Vector2( 533.524, 273.959 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Right" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="c" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Right" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="c" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
@@ -396,24 +394,7 @@ script = ExtResource( 11 )
 
 shape = SubResource( 7 )
 
-[node name="Top_Right" type="Area2D" parent="." index="15"]
-
-editor/display_folded = true
-position = Vector2( 534.91, 208.19 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Right" index="0"]
-
-shape = SubResource( 8 )
-
-[node name="Reset" type="TextureButton" parent="." index="16"]
+[node name="Reset" type="TextureButton" parent="." index="15"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -439,7 +420,7 @@ texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 14 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Info" type="Panel" parent="." index="17"]
+[node name="Info" type="Panel" parent="." index="16"]
 
 editor/display_folded = true
 visible = false
@@ -532,7 +513,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
-[node name="End" type="Panel" parent="." index="18"]
+[node name="End" type="Panel" parent="." index="17"]
 
 editor/display_folded = true
 visible = false
@@ -621,7 +602,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
-[node name="Play" type="TextureButton" parent="." index="19"]
+[node name="Play" type="TextureButton" parent="." index="18"]
 
 visible = false
 anchor_left = 0.0
@@ -648,7 +629,7 @@ texture_pressed = ExtResource( 17 )
 texture_hover = ExtResource( 18 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Next" type="TextureButton" parent="." index="20"]
+[node name="Next" type="TextureButton" parent="." index="19"]
 
 visible = false
 anchor_left = 0.0
@@ -675,7 +656,7 @@ texture_pressed = ExtResource( 17 )
 texture_hover = ExtResource( 18 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Prep" type="Label" parent="." index="21"]
+[node name="Prep" type="Label" parent="." index="20"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -695,7 +676,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Counter" type="Label" parent="." index="22"]
+[node name="Counter" type="Label" parent="." index="21"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -715,7 +696,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Table" type="Label" parent="." index="23"]
+[node name="Table" type="Label" parent="." index="22"]
 
 anchor_left = 0.0
 anchor_top = 0.0

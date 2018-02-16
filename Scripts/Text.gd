@@ -40,10 +40,9 @@ func update_Text(Type, Player):
 	get_node(Player_Value).append_bbcode(Text)
 
 func update_Counter_Text(Type, Player):
-	var Player_Num = String("../" + Player)
+	var Player_Num = get_node("../" + Player)
 	var Player_Value = String("../" + Player + "_Value")
-	#var Player = get_node(Player_Num)
-	var Value = String(Player.get_Coffee())
+	var Value = String(Player_Num.get_Coffee())
 	var Text = String("\n" + Type + " = " + Value)
 	
 	get_node(Player_Value).append_bbcode(Text)

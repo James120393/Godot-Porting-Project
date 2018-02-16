@@ -33,32 +33,32 @@ outlines = [ PoolVector2Array( -550.4, -294.4, -550.4, 281.6, 729.6, 281.6, 729.
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 22.8533, 6.14148 )
+extents = Vector2( 15, 5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 24.7778, 7.11682 )
+extents = Vector2( 15, 5 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 26.6091, 10 )
+extents = Vector2( 15, 5 )
 
 [sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
-extents = Vector2( 13.4686, 34.1123 )
+extents = Vector2( 15, 5 )
 
 [sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
-extents = Vector2( 13.2793, 36.0589 )
+extents = Vector2( 15, 5 )
 
 [sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
-extents = Vector2( 13.5758, 37.6162 )
+extents = Vector2( 15, 5 )
 
 [node name="0-0" type="Control"]
 
@@ -192,6 +192,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player2" type="RigidBody2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 146.447, 407.91 )
 input_pickable = false
 collision_layer = 1
@@ -244,55 +245,55 @@ position = Vector2( 406.381, 302.023 )
 navpoly = SubResource( 2 )
 enabled = true
 
-[node name="Coffee_Con_Left" type="Node2D" parent="." index="6"]
+[node name="a" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 432.554, 274.539 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Left" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="a" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Left" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="a" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Middle" type="Node2D" parent="." index="7"]
+[node name="b" type="Node2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 484.13, 273.703 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="b" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="b" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Right" type="Node2D" parent="." index="8"]
+[node name="c" type="Node2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 533.524, 273.959 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Right" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="c" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Right" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="c" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
@@ -317,6 +318,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Bottom_Left" type="Area2D" parent="." index="10"]
 
+editor/display_folded = true
 position = Vector2( 434.271, 429.193 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -368,7 +370,8 @@ shape = SubResource( 5 )
 [node name="Top_Left" type="Area2D" parent="." index="13"]
 
 editor/display_folded = true
-position = Vector2( 431.538, 214.523 )
+position = Vector2( 434.868, 227.611 )
+scale = Vector2( 0.8, 0.8 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -377,6 +380,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Left" index="0"]
 
@@ -385,7 +389,8 @@ shape = SubResource( 6 )
 [node name="Top_Middle" type="Area2D" parent="." index="14"]
 
 editor/display_folded = true
-position = Vector2( 487.909, 210.984 )
+position = Vector2( 485.34, 227.781 )
+scale = Vector2( 0.8, 0.8 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -394,15 +399,18 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Middle" index="0"]
 
 shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Top_Right" type="Area2D" parent="." index="15"]
 
 editor/display_folded = true
-position = Vector2( 534.91, 208.19 )
+position = Vector2( 533.982, 227.427 )
+scale = Vector2( 0.8, 0.8 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -411,6 +419,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Right" index="0"]
 

@@ -40,13 +40,13 @@ func get_Player_POS():
 #Add coffee
 func add_Coffee():
 	coffee = "A"
-	get_node("../Player1_Value").update_Text("Coffee", "Player1")
+	get_node("../Player1_Value").update_Text("Val", "Player1")
 	change_Player_Sprite()
 
 #Subtract coffee
 func subtract_Coffee():
 	coffee = ""
-	get_node("../Player1_Value").update_Text("Coffee", "Player1")
+	get_node("../Player1_Value").update_Text("Val", "Player1")
 	change_Player_Sprite()
 
 func get_Coffee():
@@ -55,13 +55,13 @@ func get_Coffee():
 #Add cake
 func add_Cake():
 	cake = "B"
-	get_node("../Player1_Value").update_Text("Cake", "Player1")
+	get_node("../Player1_Value").update_Text("Val", "Player1")
 	change_Player_Sprite()
 
 #Subtract cake
 func subtract_Cake():
 	cake = ""
-	get_node("../Player1_Value").update_Text("Cake", "Player1")
+	get_node("../Player1_Value").update_Text("Val", "Player1")
 	change_Player_Sprite()
 
 func get_Cake():

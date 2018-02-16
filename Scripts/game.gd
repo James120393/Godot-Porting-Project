@@ -39,13 +39,13 @@ func _ready():
 func _input(event):
 	var current_Level = get_tree().get_current_scene().get_name()
 	var next = get_node("Next")
-	var origin_Top = get_node("Coffee_Con_Left").position
+	var origin_Top = get_node("a").position
 	
 	if (Input.is_action_pressed("Player2_Pickup") and Player2_CanPickUp == true):
 		_On_Pickup_Button_Pressed(Player2, Coffee_Origin)
 	elif (Input.is_action_pressed("Player1_Pickup") and Player1_CanPickUp == true):
 		_On_Pickup_Button_Pressed(Player1, origin_Top)
-		get_node("Coffee_Con_Left").subtract_Coffee()
+		get_node("a").subtract_Coffee()
 	elif (Input.is_action_pressed("Player1_Drop") and Player1_CanPlace == true):
 		_On_Drop_Button_Pressed()
 	else:
@@ -53,9 +53,9 @@ func _input(event):
 
 # Read the values of the coffee and cake to see if the level should end
 ### TODO once the text reader is implemented change this to a function that reads the win conditions and compared it to the current condition
-	if (current_Level == "0-0" and get_node("Coffee_Con_Left").get_Coffee() == "Val"):
+	if (current_Level == "0-0" and get_node("a").get_Coffee() == "Addy"):
 		_end_Level()
-	elif (current_Level == "0-1" and get_node("Coffee_Con_Left").get_Coffee() == "Val" and get_node("Coffee_Con_Middle").get_Coffee() == "Addy"):
+	elif (current_Level == "0-1" and get_node("a").get_Coffee() == "Addy" and get_node("b").get_Coffee() == "Val"):
 		_end_Level()
 #	elif (current_Level == "0-2" and get_node("Coffee_Con_Left").get_Coffee() == "Val"):
 #		_end_Level()
@@ -122,7 +122,7 @@ func _process(delta):
 				Player1.add_Cake()
 				tween.reset_all()
 				if (Area_Player1.top_Left == true):
-					get_node("Coffee_Con_Left").subtract_Coffee()
+					get_node("a").subtract_Coffee()
 			else:
 				pass
 		else:
@@ -140,9 +140,9 @@ func _process(delta):
 
 # What to do when the drop button is pressed
 func _On_Drop_Button_Pressed():
-	var c_Con_Left = get_node("Coffee_Con_Left")
-	var c_Con_Middle = get_node("Coffee_Con_Middle")
-	var c_Con_Rright = get_node("Coffee_Con_Right")
+	var c_Con_Left = get_node("a")
+	var c_Con_Middle = get_node("b")
+	var c_Con_Rright = get_node("c")
 	
 	# see which area the player is currently in
 	if (Player1.has_Value() == true):
@@ -151,7 +151,7 @@ func _On_Drop_Button_Pressed():
 			Player1.subtract_Coffee()
 		elif (Area_Player1 == top_Middle):
 			c_Con_Middle.add_Coffee("Addy")
-			get_node("Player2_Value").update_Text("a", "Coffee_Con_Middle")
+			get_node("Player2_Value").update_Text("a", "a")
 			Player1.subtract_Coffee()
 		elif (Area_Player1 == top_Right):
 			c_Con_Rright.add_Coffee("Addy")
@@ -174,7 +174,7 @@ func _On_Drop_Button_Pressed():
 ##### TODO Make a better way to detect where the player is so this function can be smaller
 # What to do whan the pickup button is pressed
 func _On_Pickup_Button_Pressed(Player, origin):
-	var origin_Top = get_node("Coffee_Con_Left").position
+	var origin_Top = get_node("a").position
 	
 	# depending on what player pressed the pickup button play an animation
 	# Move the coffee to player 2
@@ -224,13 +224,13 @@ func _end_Level():
 ### TODO fix issue with imputting too many arguments
 func change_Value(name, name2):
 	# This is the only container referenced as it is triggered by collision not input
-	var c_Con_Left = get_node("Coffee_Con_Left")
+	var container_a = get_node("a")
 	var Player2_Value = Player2.get_Coffee()
 	
 	if (name2 == "Under_Left" and Player2_Value == "A"):
 		Player2.subtract_Coffee()
-		c_Con_Left.add_Coffee("Val")
-		get_node("Player2_Value").update_Text("a", "Coffee_Con_Left")
+		container_a.add_Coffee("Addy")
+		get_node("Player2_Value").update_Text("a", "a")
 		
 	if (name2 == "Bottom_Left"):
 		Area_Player2 = bottom_Left

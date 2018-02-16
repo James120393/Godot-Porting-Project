@@ -27,22 +27,40 @@ func _process(delta):
 
 #	get_node("../Player1_Value").append_bbcode(Text)
 
-func update_Text(Type, Player):
+func update_Text(Name, coffeeOrCake, Player):
 	#Get the player node
 	var Player_Num = get_node("../" + Player)
 	#Get the text box
 	var Player_Value = String("../Player2_Value")
 	#Get the coffe value
-	var Value = String(Player_Num.get_Coffee())
-	#Convert it all into a single string
-	var Text = String("\n" + Type + " = " + Value)
-	
-	get_node(Player_Value).append_bbcode(Text)
+	if (coffeeOrCake == "Coffee"):
+		var Value = String(Player_Num.get_Coffee())
+			#Convert it all into a single string
+		var Text = String("\n" + Name + " = " + Value)
+		get_node(Player_Value).append_bbcode(Text)
+		return
+	else:
+		var Value = String(Player_Num.get_Cake())
+			#Convert it all into a single string
+		var Text = String("\n" + Name + " = " + Value)
+		get_node(Player_Value).append_bbcode(Text)
+		return
+	return
 
-func update_Counter_Text(Type, Player):
-	var Player_Num = get_node("../" + Player)
-	var Player_Value = String("../" + Player + "_Value")
-	var Value = String(Player_Num.get_Coffee())
-	var Text = String("\n" + Type + " = " + Value)
+func update_Counter_Text(Name, coffeeOrCake):
+	var Player_Num = get_node("../" + Name)
+	var Player_Value = String("../Player2_Value")
+
+	if (coffeeOrCake == "Coffee"):
+		var Value = String(Player_Num.get_Coffee())
+		var Text = String("\n" + Name + " = " + Value)
+		get_node(Player_Value).append_bbcode(Text)
+		return
+	else:
+		var Value = String(Player_Num.get_Cake())
+		var Text = String("\n" + Name + " = " + Value)
+		get_node(Player_Value).append_bbcode(Text)
+		return
+	return
 	
-	get_node(Player_Value).append_bbcode(Text)
+

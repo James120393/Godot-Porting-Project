@@ -46,7 +46,7 @@ func change_Player_Sprite(name):
 #Add coffee
 func add_Coffee():
 	coffee = "A"
-	get_node("../Player2_Value").update_Text("Addy", "Player2")
+	get_node("../Player2_Value").update_Text("Val", "Coffee", "Player2")
 	change_Player_Sprite("_Plate_Coffee.png")
 
 #Subtract coffee
@@ -60,13 +60,12 @@ func get_Coffee():
 #Add cake
 func add_Cake():
 	cake = "B"
-	get_node("../Player2_Value").update_Text("Addy", "Player2")
+	get_node("../Player2_Value").update_Text("Val", "Cake", "Player2")
 	change_Player_Sprite("_Plate_Cake.png")
 
 #Subtract cake
 func subtract_Cake():
 	cake = ""
-	get_node("../Player2_Value").update_Text("Addy", "Player2")
 	change_Player_Sprite("")
 
 func get_Cake():

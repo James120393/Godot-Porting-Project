@@ -55,7 +55,7 @@ extents = Vector2( 13.4686, 34.1123 )
 custom_solver_bias = 0.0
 extents = Vector2( 13.2793, 36.0589 )
 
-[node name="0-1" type="Control" index="0"]
+[node name="0-1" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

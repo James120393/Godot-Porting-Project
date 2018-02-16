@@ -38,30 +38,70 @@ func get_Player_POS():
 	return get_node("../Player1").position
 
 #Add coffee
-func add_Coffee():
-	coffee = "A"
-	get_node("../Player1_Value").update_Text("Val", "Player1")
-	change_Player_Sprite()
+func add_Coffee(name):
+	if (typeof(name) == TYPE_STRING):
+		if (name == 1):
+			coffee = "a"
+			get_node("../Player1_Value").update_Text("Addy", "Coffee", "Player1")
+			change_Player_Sprite()
+		elif (name == 2):
+			coffee = "b"
+			get_node("../Player1_Value").update_Text("Addy", "Coffee", "Player1")
+			change_Player_Sprite()
+		elif (name == 3):
+			coffee = "c"
+			get_node("../Player1_Value").update_Text("Addy", "Coffee", "Player1")
+			change_Player_Sprite()
+		else:
+			pass
+	else:
+		pass
+	if (typeof(name) == TYPE_STRING):
+		coffee = name
+		get_node("../Player1_Value").update_Text("Addy", "Coffee", "Player1")
+		change_Player_Sprite()
+	else:
+		pass
+	
+	
 
 #Subtract coffee
 func subtract_Coffee():
 	coffee = ""
-	get_node("../Player1_Value").update_Text("Val", "Player1")
 	change_Player_Sprite()
 
 func get_Coffee():
 	return coffee
 
 #Add cake
-func add_Cake():
-	cake = "B"
-	get_node("../Player1_Value").update_Text("Val", "Player1")
-	change_Player_Sprite()
+func add_Cake(name):
+	if (typeof(name) == TYPE_INT):
+		if (name == 1):
+			cake = "a"
+			get_node("../Player1_Value").update_Text("Addy", "Cake", "Player1")
+			change_Player_Sprite()
+		elif (name == 2):
+			cake = "b"
+			get_node("../Player1_Value").update_Text("Addy", "Cake", "Player1")
+			change_Player_Sprite()
+		elif (name == 3):
+			cake = "c"
+			get_node("../Player1_Value").update_Text("Addy", "Cake", "Player1")
+			change_Player_Sprite()
+		else:
+			pass
+	else:
+		pass
+	if (typeof(name) == TYPE_STRING):
+		cake = name
+		get_node("../Player1_Value").update_Text("Addy", "Cake", "Player1")
+		change_Player_Sprite()
+	else:
+		pass
 
 #Subtract cake
 func subtract_Cake():
 	cake = ""
-	get_node("../Player1_Value").update_Text("Val", "Player1")
 	change_Player_Sprite()
 
 func get_Cake():

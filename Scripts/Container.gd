@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var selfName = str(self.get_name())
 var coffee = str()
 var cake = str()
 
@@ -21,7 +22,25 @@ func _ready():
 
 #Add coffee
 func add_Coffee(name):
-	coffee = name
+	if (typeof(name) == TYPE_INT):
+		if (name == 1):
+			coffee = "a"
+			get_node("../Player2_Value").update_Counter_Text(selfName, "Coffee")
+		elif (name == 2):
+			coffee = "b"
+			get_node("../Player2_Value").update_Counter_Text(selfName, "Coffee")
+		elif (name == 3):
+			coffee = "c"
+			get_node("../Player2_Value").update_Counter_Text(selfName, "Coffee")
+		else:
+			pass
+	else:
+		pass
+	if (typeof(name) == TYPE_STRING):
+		coffee = name
+		get_node("../Player2_Value").update_Counter_Text(selfName, "Coffee")
+	else:
+		pass
 
 #Subtract coffee
 func subtract_Coffee():
@@ -33,6 +52,7 @@ func get_Coffee():
 #Add cake
 func add_Cake(name):
 	cake = name
+	get_node("../Player2_Value").update_Counter_Text(selfName, "Cake")
 
 #Subtract cake
 func subtract_Cake():

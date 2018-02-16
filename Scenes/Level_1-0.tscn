@@ -60,7 +60,7 @@ extents = Vector2( 13.2793, 36.0589 )
 custom_solver_bias = 0.0
 extents = Vector2( 13.5758, 37.6162 )
 
-[node name="1-0" type="Control"]
+[node name="1-0" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -244,55 +244,55 @@ position = Vector2( 406.381, 302.023 )
 navpoly = SubResource( 2 )
 enabled = true
 
-[node name="Coffee_Con_Left" type="Node2D" parent="." index="6"]
+[node name="a" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 432.554, 274.539 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Left" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="a" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Left" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="a" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Middle" type="Node2D" parent="." index="7"]
+[node name="b" type="Node2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 484.13, 273.703 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="b" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="b" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Right" type="Node2D" parent="." index="8"]
+[node name="c" type="Node2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 533.524, 273.959 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Right" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="c" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Right" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="c" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )

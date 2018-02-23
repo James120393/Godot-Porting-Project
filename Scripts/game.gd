@@ -5,6 +5,7 @@ onready var t_Coffee = get_node("Tween/Coffee")
 onready var Player1 = get_node("Player1")
 onready var Player2 = get_node("Player2")
 onready var Coffee_Origin = get_node("Tween/Coffee").position
+onready var current_Level = get_tree().get_current_scene().get_name()
 
 var Player1_CanPickUp = false
 var Player2_CanPickUp = false

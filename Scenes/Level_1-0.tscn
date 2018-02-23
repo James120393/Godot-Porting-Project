@@ -738,4 +738,13 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Line2D" type="Line2D" parent="." index="24"]
+
+points = PoolVector2Array( 441.845, 93.5393, 159.362, 198.229 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Capping" ]
+
 

@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Port"
-run/main_scene="res://Scenes/Menu.tscn"
+run/main_scene="res://Scenes/Level_menu.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -40,6 +40,10 @@ Player1_Move_Left=[ Object(InputEventKey,"resource_local_to_scene":false,"resour
 Player1_Move_Right=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
  ]
 Player2_Move_Down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+Player1_Move_Up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+Player1_Move_Down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
  ]
 
 [rendering]

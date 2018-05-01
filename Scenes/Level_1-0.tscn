@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Art/Tile_set.tres" type="TileSet" id=2]
@@ -11,13 +11,17 @@
 [ext_resource path="res://Art/Cup.png" type="Texture" id=9]
 [ext_resource path="res://Art/Cake.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Area.gd" type="Script" id=11]
-[ext_resource path="res://Art/Ui/Buttons/Reset_Button.png" type="Texture" id=12]
-[ext_resource path="res://Art/Ui/Buttons/Reset_Button_Pressed.png" type="Texture" id=13]
-[ext_resource path="res://Art/Ui/Buttons/Reset_Button_Hover.png" type="Texture" id=14]
-[ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=15]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=16]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=17]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/Line.gd" type="Script" id=12]
+[ext_resource path="res://Art/Ui/Buttons/Reset_Button.png" type="Texture" id=13]
+[ext_resource path="res://Art/Ui/Buttons/Reset_Button_Pressed.png" type="Texture" id=14]
+[ext_resource path="res://Art/Ui/Buttons/Reset_Button_Hover.png" type="Texture" id=15]
+[ext_resource path="res://Art/Ui/Buttons/Cross.png" type="Texture" id=16]
+[ext_resource path="res://Art/Ui/Buttons/Cross-pressed.png" type="Texture" id=17]
+[ext_resource path="res://Art/Ui/Buttons/Cross-hover.png" type="Texture" id=18]
+[ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=19]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=20]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=21]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -38,27 +42,12 @@ extents = Vector2( 22.8533, 6.14148 )
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 24.7778, 7.11682 )
+extents = Vector2( 26.6091, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 26.6091, 10 )
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
 extents = Vector2( 13.4686, 34.1123 )
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 13.2793, 36.0589 )
-
-[sub_resource type="RectangleShape2D" id=8]
-
-custom_solver_bias = 0.0
-extents = Vector2( 13.5758, 37.6162 )
 
 [node name="1-0" type="Control"]
 
@@ -178,6 +167,7 @@ angular_damp = -1.0
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 Player_speed = 200
+Player_jump_height = 200
 
 [node name="Player1_Sprite" type="Sprite" parent="Player1" index="0"]
 
@@ -244,63 +234,88 @@ position = Vector2( 406.381, 302.023 )
 navpoly = SubResource( 2 )
 enabled = true
 
-[node name="Coffee_Con_Left" type="Node2D" parent="." index="6"]
+[node name="a" type="Node2D" parent="." index="6" groups=[
+"Container",
+]]
 
 editor/display_folded = true
 position = Vector2( 432.554, 274.539 )
 script = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Left" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="a" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Left" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="a" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Middle" type="Node2D" parent="." index="7"]
+[node name="b" type="Node2D" parent="." index="7" groups=[
+"Container",
+]]
 
 editor/display_folded = true
 position = Vector2( 484.13, 273.703 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="b" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Middle" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="b" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Coffee_Con_Right" type="Node2D" parent="." index="8"]
+[node name="c" type="Node2D" parent="." index="8" groups=[
+"Container",
+]]
 
 editor/display_folded = true
-position = Vector2( 533.524, 273.959 )
+position = Vector2( 557.436, 274.517 )
 script = ExtResource( 8 )
 
-[node name="Coffee_Sprite" type="Sprite" parent="Coffee_Con_Right" index="0"]
+[node name="Coffee_Sprite" type="Sprite" parent="c" index="0"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 
-[node name="Cake_Sprite" type="Sprite" parent="Coffee_Con_Right" index="1"]
+[node name="Cake_Sprite" type="Sprite" parent="c" index="1"]
 
 visible = false
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 
-[node name="Tween" type="Tween" parent="." index="9"]
+[node name="*q" type="Node2D" parent="." index="9" groups=[
+"Container",
+]]
 
-editor/display_folded = true
+position = Vector2( 436.162, 76.9164 )
+script = ExtResource( 8 )
+
+[node name="Coffee_Sprite" type="Sprite" parent="*q" index="0"]
+
+visible = false
+scale = Vector2( 0.45, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="Cake_Sprite" type="Sprite" parent="*q" index="1"]
+
+visible = false
+scale = Vector2( 0.45, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="Tween" type="Tween" parent="." index="10"]
+
 repeat = false
 playback_process_mode = 1
 playback_speed = 1.0
@@ -308,14 +323,14 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Coffee" type="Sprite" parent="Tween" index="0"]
+[node name="Tween_Coffee" type="Sprite" parent="Tween" index="0"]
 
 position = Vector2( 433.96, 476.663 )
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bottom_Left" type="Area2D" parent="." index="10"]
+[node name="Bottom_Left" type="Area2D" parent="." index="11"]
 
 position = Vector2( 434.271, 429.193 )
 input_pickable = true
@@ -330,23 +345,6 @@ script = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Left" index="0"]
 
 shape = SubResource( 3 )
-
-[node name="Bottom_Right" type="Area2D" parent="." index="11"]
-
-editor/display_folded = true
-position = Vector2( 531.746, 427.57 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Right" index="0"]
-
-shape = SubResource( 4 )
 
 [node name="Under_Left" type="Area2D" parent="." index="12"]
 
@@ -363,7 +361,7 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Under_Left" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Top_Left" type="Area2D" parent="." index="13"]
 
@@ -380,43 +378,20 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Left" index="0"]
 
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
-[node name="Top_Middle" type="Area2D" parent="." index="14"]
+[node name="Line2D" type="Line2D" parent="." index="14"]
 
-editor/display_folded = true
-position = Vector2( 487.909, 210.984 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 11 )
+points = PoolVector2Array( 434.173, 86.363, 434.173, 257.133 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 1131864064
+sharp_limit = 2.0
+round_precision = 8
+script = ExtResource( 12 )
+_sections_unfolded = [ "Capping", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Middle" index="0"]
-
-shape = SubResource( 7 )
-
-[node name="Top_Right" type="Area2D" parent="." index="15"]
-
-editor/display_folded = true
-position = Vector2( 534.91, 208.19 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Right" index="0"]
-
-shape = SubResource( 8 )
-
-[node name="Reset" type="TextureButton" parent="." index="16"]
+[node name="Reset" type="TextureButton" parent="." index="15"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -437,15 +412,39 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 14 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 15 )
 _sections_unfolded = [ "Rect" ]
+
+[node name="Quit" type="TextureButton" parent="." index="16"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 124.0
+margin_right = 289.0
+margin_bottom = 389.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Info" type="Panel" parent="." index="17"]
 
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -478,7 +477,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 19 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect", "Visibility" ]
 
@@ -497,7 +496,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 19 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect" ]
 
@@ -519,16 +518,12 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
-bbcode_text = "Addy needs to move once cup of coffee
-from the preperation area to Val at the 
-counter."
+bbcode_text = "Put a Coffee on the Table."
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Addy needs to move once cup of coffee
-from the preperation area to Val at the 
-counter."
+text = "Put a Coffee on the Table."
 scroll_active = true
 scroll_following = false
 selection_enabled = false
@@ -571,7 +566,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 19 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect", "Visibility" ]
 
@@ -590,7 +585,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 19 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect" ]
 
@@ -626,7 +621,6 @@ _sections_unfolded = [ "BBCode" ]
 
 [node name="Play" type="TextureButton" parent="." index="19"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -646,9 +640,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Next" type="TextureButton" parent="." index="20"]
@@ -673,9 +667,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Prep" type="Label" parent="." index="21"]

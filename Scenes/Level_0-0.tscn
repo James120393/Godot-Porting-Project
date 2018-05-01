@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Art/Tile_set.tres" type="TileSet" id=2]
@@ -14,10 +14,13 @@
 [ext_resource path="res://Art/Ui/Buttons/Reset_Button.png" type="Texture" id=12]
 [ext_resource path="res://Art/Ui/Buttons/Reset_Button_Pressed.png" type="Texture" id=13]
 [ext_resource path="res://Art/Ui/Buttons/Reset_Button_Hover.png" type="Texture" id=14]
-[ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=15]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=16]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=17]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=18]
+[ext_resource path="res://Art/Ui/Buttons/Cross.png" type="Texture" id=15]
+[ext_resource path="res://Art/Ui/Buttons/Cross-pressed.png" type="Texture" id=16]
+[ext_resource path="res://Art/Ui/Buttons/Cross-hover.png" type="Texture" id=17]
+[ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=18]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=19]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=20]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -178,6 +181,7 @@ angular_damp = -1.0
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 Player_speed = 200
+Player_jump_height = 200
 
 [node name="Player1_Sprite" type="Sprite" parent="Player1" index="0"]
 
@@ -247,7 +251,6 @@ enabled = true
 
 [node name="a" type="Node2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 432.554, 274.539 )
 script = ExtResource( 8 )
 
@@ -301,7 +304,6 @@ texture = ExtResource( 10 )
 
 [node name="Tween" type="Tween" parent="." index="9"]
 
-editor/display_folded = true
 repeat = false
 playback_process_mode = 1
 playback_speed = 1.0
@@ -309,7 +311,7 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Coffee" type="Sprite" parent="Tween" index="0"]
+[node name="Tween_Coffee" type="Sprite" parent="Tween" index="0"]
 
 position = Vector2( 433.96, 476.663 )
 scale = Vector2( 0.45, 0.5 )
@@ -451,10 +453,34 @@ texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 14 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Info" type="Panel" parent="." index="17"]
+[node name="Quit" type="TextureButton" parent="." index="17"]
 
-editor/display_folded = true
-visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 125.0
+margin_right = 294.0
+margin_bottom = 398.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 17 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Info" type="Panel" parent="." index="18"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -487,7 +513,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 18 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect", "Visibility" ]
 
@@ -506,7 +532,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 18 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect" ]
 
@@ -544,9 +570,8 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
-[node name="End" type="Panel" parent="." index="18"]
+[node name="End" type="Panel" parent="." index="19"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -580,7 +605,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 18 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect", "Visibility" ]
 
@@ -599,7 +624,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 15 )
+texture = ExtResource( 18 )
 stretch_mode = 2
 _sections_unfolded = [ "Rect" ]
 
@@ -633,9 +658,8 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
-[node name="Play" type="TextureButton" parent="." index="19"]
+[node name="Play" type="TextureButton" parent="." index="20"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -655,12 +679,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Next" type="TextureButton" parent="." index="20"]
+[node name="Next" type="TextureButton" parent="." index="21"]
 
 visible = false
 anchor_left = 0.0
@@ -682,12 +706,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Prep" type="Label" parent="." index="21"]
+[node name="Prep" type="Label" parent="." index="22"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -707,7 +731,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Counter" type="Label" parent="." index="22"]
+[node name="Counter" type="Label" parent="." index="23"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -727,7 +751,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Table" type="Label" parent="." index="23"]
+[node name="Table" type="Label" parent="." index="24"]
 
 anchor_left = 0.0
 anchor_top = 0.0

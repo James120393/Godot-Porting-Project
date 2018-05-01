@@ -5,11 +5,13 @@ export var Player_jump_height = 200
 
 var coffee = String()
 var cake = String()
+var value = null
+var holding = null
 
 var Move_Right = Input.is_action_pressed("Player2_Move_Right")
 var Move_Left = Input.is_action_pressed("Player2_Move_Left")
-var Move_Up = Input.is_action_pressed("Player2_Jump")
-var Move_Down = Input.is_action_pressed("Player2_Down")
+var Move_Up = Input.is_action_pressed("Player2_Move_Up")
+var	Move_Down = Input.is_action_pressed("Player2_Move_Down")
 
 func _ready():
 	# Initalization here
@@ -34,43 +36,35 @@ func _process(delta):
 		set_linear_velocity(Vector2(0,0))
 
 
-func change_Player_Sprite(name):
+func change_Player_Sprite():
 	var Player2 = get_node("Player2_Sprite")
-	var sprite_Name = String("res://Art/Player2_Sprite" + name)
-	if (get_Coffee() != "" or get_Cake() != ""):
+	if (holding != null):
+		var sprite_Name = String("res://Art/Player2_Sprite_Plate_" + holding + ".png")
 		Player2.set_texture(load(sprite_Name))
 	else:
 		Player2.set_texture(load("res://Art/Player2_Sprite.png"))
 
 
 #Add coffee
-func add_Coffee():
-	coffee = "A"
-	get_node("../Player2_Value").update_Text("Addy", "Player2")
-	change_Player_Sprite("_Plate_Coffee.png")
+func add_Value(item):
+	holding = item
+	if (item == "Coffee"):
+		value = "A"
+	else:
+		value = "B"
+	get_node("../Player2_Value").update_Text("Val", "Player2")
+	change_Player_Sprite()
 
 #Subtract coffee
-func subtract_Coffee():
-	coffee = ""
-	change_Player_Sprite("")
+func subtract_Value():
+	value = null
+	change_Player_Sprite()
 
-func get_Coffee():
-	return coffee
+func get_Value():
+	return value
 
-#Add cake
-func add_Cake():
-	cake = "B"
-	get_node("../Player2_Value").update_Text("Addy", "Player2")
-	change_Player_Sprite("_Plate_Cake.png")
-
-#Subtract cake
-func subtract_Cake():
-	cake = ""
-	get_node("../Player2_Value").update_Text("Addy", "Player2")
-	change_Player_Sprite("")
-
-func get_Cake():
-	return cake
+func get_Value_Name():
+	return value
 
 func has_Value():
 	if (coffee != "" or cake != ""):

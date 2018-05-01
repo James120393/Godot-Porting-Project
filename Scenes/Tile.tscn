@@ -33,7 +33,6 @@ polygon = PoolVector2Array( -19.2, -32, -44.8, -19.2, -44.8, 32, 44.8, 32, 44.8,
 
 editor/display_folded = true
 position = Vector2( 145, 35 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 502, 101, 50, 50 )
@@ -60,7 +59,6 @@ polygon = PoolVector2Array( -19.2, -32, -44.8, -19.2, -44.8, 32, 44.8, 32, 44.8,
 
 editor/display_folded = true
 position = Vector2( 255, 35 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1301, 301, 50, 50 )
@@ -87,7 +85,6 @@ polygon = PoolVector2Array( -19.2, -32, -44.8, -19.2, -44.8, 32, 44.8, 32, 44.8,
 
 editor/display_folded = true
 position = Vector2( 365, 35 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1301, 345, 50, 50 )
@@ -112,7 +109,6 @@ polygon = PoolVector2Array( -19.2, -32, -44.8, -19.2, -44.8, 32, 44.8, 32, 44.8,
 
 [node name="Transition-container" type="Sprite" parent="." index="4"]
 
-editor/display_folded = true
 position = Vector2( 35, 125 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -174,7 +170,6 @@ polygon = PoolVector2Array( -19.2, -32, -44.8, -19.2, -44.8, 32, 44.8, 32, 44.8,
 
 editor/display_folded = true
 position = Vector2( 255, 125 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1485, 305, 50, 50 )
@@ -201,7 +196,6 @@ polygon = PoolVector2Array( -19.2, -32, -44.8, -19.2, -44.8, 32, 44.8, 32, 44.8,
 
 editor/display_folded = true
 position = Vector2( 365, 125 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1650, 345, 50, 50 )

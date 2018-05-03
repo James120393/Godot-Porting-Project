@@ -4,7 +4,7 @@ onready var tween = get_node("Tween")
 onready var t_Coffee = get_node("Tween/Tween_Coffee")
 onready var Player1 = get_node("Player1")
 onready var Player2 = get_node("Player2")
-onready var Coffee_Origin = get_node("Tween/Tween_Coffee").position
+onready var Coffee_Origin = t_Coffee.position
 onready var current_Level = get_tree().get_current_scene().get_name()
 onready var Player1_State = Player1.player1_Has_Pointer_Tool()
 

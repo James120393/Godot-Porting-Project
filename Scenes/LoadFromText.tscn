@@ -161,8 +161,7 @@ script = ExtResource( 4 )
 
 [node name="Player1" type="RigidBody2D" parent="." index="3"]
 
-editor/display_folded = true
-position = Vector2( 151.257, 209.609 )
+position = Vector2( 185.257, 126.609 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -200,7 +199,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="Player2" type="RigidBody2D" parent="." index="4"]
 
 editor/display_folded = true
-position = Vector2( 146.447, 407.91 )
+position = Vector2( 266.447, 127.91 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -316,7 +315,7 @@ playback/speed = 1.0
 
 [node name="Tween_Coffee" type="Sprite" parent="Tween" index="0"]
 
-position = Vector2( 433.96, 476.663 )
+position = Vector2( 362.96, 123.663 )
 scale = Vector2( 0.45, 0.5 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]

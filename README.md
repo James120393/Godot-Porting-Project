@@ -9,7 +9,7 @@ To run this project you will need to install the lastest version of Mono and GoD
 
 [GoDot 3.0](https://godotengine.org/download/windows)
 
-[Link to the Project Repository on GitHub]()
+[Link to the Project Repository on GitHub](https://github.com/James120393/Godot-Porting-Project/tree/master)
 
 Once these are isntalled/extracted, just open the "project.godot" file located inside the project folder. 
 Then when promted locate and select the Godot executable that came with the engine.

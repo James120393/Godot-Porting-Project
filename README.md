@@ -13,3 +13,24 @@ Once these are isntalled/extracted, just open the "project.godot" file located i
 Then when promted locate and select the Godot executable that came with the engine.
 
 The project should then launch.
+
+For my coontribution to the game I added the following:
+
+The main gameplay loop
+Constructing of the levels
+Porting of art assets
+Game controls
+Level goals
+
+Of the classes I created:
+
+Player 1&2.gd
+Container.gd
+Game.gd
+Level Selector.gd
+Menu.gd
+Text.gd
+Line.gd
+Area.gd
+
+

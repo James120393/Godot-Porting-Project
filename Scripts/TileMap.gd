@@ -32,10 +32,10 @@ func _ready():
 			isIntialMap = false
 	print(tileMapTextArray)
 	
-	var player2pos
-	
-	
+
 	# apply aesthetic layout to level
+	var position
+	var positionModifier
 	for y in range(0, tileMapTextArray.size()):
 		for x in range(0, tileMapTextArray[y].length()):
 			#determine which tile to place
@@ -43,15 +43,33 @@ func _ready():
 				set_cell(x,y,1)
 			elif tileMapTextArray[y][x] == "+":
 				set_cell(x,y,1)
+				
+			# position players
 			elif tileMapTextArray[y][x] == "*":
-				player2pos = Vector2(x,y)					#TODO: make multiplier unnecessary Something to do with the tilemap going off screen
+				position = map_to_world(Vector2(x,y))
+				get_parent().get_node("Player2").set_global_position(position)
+				set_cell(x,y,3)
 			elif tileMapTextArray[y][x] == "&":
-				var position = map_to_world(Vector2(x,y))
-				print(position)
+				position = map_to_world(Vector2(x,y))
 				get_parent().get_node("Player1").set_global_position(position)
+				set_cell(x,y,3)
+			
+			# place values
+			elif tileMapTextArray[y][x] == "A":
+				position = map_to_world(Vector2(x,y))
+				positionModifier = Vector2(32,80)
+				get_parent().get_node("Tween/Tween_Coffee").set_global_position(position + positionModifier)
+				# pickup collider
+				positionModifier = Vector2(32,0)
+				get_parent().get_node("Bottom_Left").set_global_position(position + positionModifier)
+				set_cell(x,y,2)
+			
+			elif tileMapTextArray[y][x] == "x":
+				position = map_to_world(Vector2(x,y))
+				positionModifier = Vector2(32,80*2)
+				get_parent().get_node("Under_Left/CollisionShape2D").set_global_position(position + positionModifier)
+				set_cell(x,y,8)
+			
+			# place background tiles in empty space
 			else:
 				set_cell(x,y,3)
-	
-	
-	#place objects only once the grid has reached it's final size
-	get_parent().get_node("Player2").set_global_position(map_to_world(player2pos))

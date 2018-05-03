@@ -7,7 +7,7 @@ path="res://.import/Button.png-8292a44d089ace97bd6b7610060515fc.stex"
 [deps]
 
 source_file="res://Art/Ui/Buttons/Button.png"
-source_md5="54de5d050cedb309b5be392f879f6b85"
+source_md5="3da1d8936308de964bab9b1e8c89fae8"
 
 dest_files=[ "res://.import/Button.png-8292a44d089ace97bd6b7610060515fc.stex" ]
 dest_md5="6ae6dea5c8aab5a41f547c574187b7cc"

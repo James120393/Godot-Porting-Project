@@ -15,13 +15,13 @@
 [ext_resource path="res://Art/Ui/Buttons/Reset_Button.png" type="Texture" id=13]
 [ext_resource path="res://Art/Ui/Buttons/Reset_Button_Pressed.png" type="Texture" id=14]
 [ext_resource path="res://Art/Ui/Buttons/Reset_Button_Hover.png" type="Texture" id=15]
-[ext_resource path="res://Art/Ui/Buttons/Cross.png" type="Texture" id=16]
-[ext_resource path="res://Art/Ui/Buttons/Cross-pressed.png" type="Texture" id=17]
-[ext_resource path="res://Art/Ui/Buttons/Cross-hover.png" type="Texture" id=18]
+[ext_resource path="res://Art/Ui/Buttons/Exit.png" type="Texture" id=16]
+[ext_resource path="res://Art/Ui/Buttons/Exit_pressed.png" type="Texture" id=17]
+[ext_resource path="res://Art/Ui/Buttons/Exit_hover.png" type="Texture" id=18]
 [ext_resource path="res://Art/Ui/PopUp Background.png" type="Texture" id=19]
 [ext_resource path="res://Art/Ui/Buttons/Right_arrow.png" type="Texture" id=20]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-pressed.png" type="Texture" id=21]
-[ext_resource path="res://Art/Ui/Buttons/Right_arrow-hover.png" type="Texture" id=22]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow_pressed.png" type="Texture" id=21]
+[ext_resource path="res://Art/Ui/Buttons/Right_arrow_hover.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -415,7 +415,7 @@ group = null
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 14 )
 texture_hover = ExtResource( 15 )
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Quit" type="TextureButton" parent="." index="16"]
 

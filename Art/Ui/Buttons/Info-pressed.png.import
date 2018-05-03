@@ -7,10 +7,10 @@ path="res://.import/Info-pressed.png-89b219b95083d349a6e72dd10b7b9adc.stex"
 [deps]
 
 source_file="res://Art/Ui/Buttons/Info-pressed.png"
-source_md5="e8da9d6e25fc289fe6f88d2fcd6d92c1"
+source_md5="2678db60e39588da7e8859f4cc37ca0c"
 
 dest_files=[ "res://.import/Info-pressed.png-89b219b95083d349a6e72dd10b7b9adc.stex" ]
-dest_md5="9358ab6775c7648972fa404430bb01ca"
+dest_md5="b7037db6be04cd6c062c5f1913ef3a74"
 
 [params]
 

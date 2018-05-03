@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cross-pressed.png-23a2aea5646d41bb3d38329ded64e165.stex"
+path="res://.import/Right_arrow_pressed.png-730fbf4e67c214fd8b349743cc258a48.stex"
 
 [deps]
 
-source_file="res://Art/Ui/Buttons/Cross-pressed.png"
-source_md5="f5a69522deea600a5696fab40001ea5c"
+source_file="res://Art/Ui/Buttons/Right_arrow_pressed.png"
+source_md5="b505904da6f0ec661888fba4218c7435"
 
-dest_files=[ "res://.import/Cross-pressed.png-23a2aea5646d41bb3d38329ded64e165.stex" ]
-dest_md5="29dde6ceca9abb1c9d34be89d31f6fa4"
+dest_files=[ "res://.import/Right_arrow_pressed.png-730fbf4e67c214fd8b349743cc258a48.stex" ]
+dest_md5="ef9a3fb67db1750c9889835c24da75ce"
 
 [params]
 

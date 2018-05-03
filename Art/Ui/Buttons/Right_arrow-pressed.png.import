@@ -7,10 +7,10 @@ path="res://.import/Right_arrow-pressed.png-9cd1d4a64a36572b277d003062d404e0.ste
 [deps]
 
 source_file="res://Art/Ui/Buttons/Right_arrow-pressed.png"
-source_md5="85b0519eb28619e39bc978bfb08936f5"
+source_md5="005f8a7b0f5d48a9ba8af22ed0cfa31b"
 
 dest_files=[ "res://.import/Right_arrow-pressed.png-9cd1d4a64a36572b277d003062d404e0.stex" ]
-dest_md5="cc644ed91adeca17b3e20445c9071e63"
+dest_md5="a8eece87347b7c23fbd0b002ec5c62e9"
 
 [params]
 

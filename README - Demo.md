@@ -3,9 +3,9 @@
 
 ## If Memory Serves
 
-If memory serves is an open source game created by a group of researchers that attended the ACM Annual Conference of Innovation and Technology in Computer Science Education (ITiCSE 2017). The game revolves around teaching undergraduates pointers and was designed using a learning outcome based approach. This allowed for a game that facilitated educational games development within computer science. 
+If memory serves is an open source game created by a group of researchers that attended the ACM Annual Conference of Innovation and Technology in Computer Science Education (ITiCSE 2017). The game revolves around teaching undergraduates pointers and was designed using a learning outcome-based approach. This allowed for a game that facilitated educational games development within computer science. 
 
-This project is to port ìIf memory servesî to an open source games engine (we have chosen Godot) as it is currently being developed on Unity.
+This project is to port ‚ÄúIf memory serves‚Äù to an open source games engine (we have chosen Godot) as it is currently being developed on Unity.
 
 
 [If Memory Serves Home Page](http://ifmemoryserves.org/index.html)
@@ -13,7 +13,7 @@ This project is to port ìIf memory servesî to an open source games engine (we ha
 
 ## Project Set-up
 
-To run this project you will need to install the lastest version of Mono and GoDot 3.0.
+To run this project you will need to install the latest version of Mono and GoDot 3.0.
 
 [Mono Project](https://www.mono-project.com/download/stable/)
 
@@ -21,8 +21,8 @@ To run this project you will need to install the lastest version of Mono and GoD
 
 [Link to the Project Repository on GitHub](https://github.com/James120393/Godot-Porting-Project/tree/master)
 
-Once these are isntalled/extracted, just open the "project.godot" file located inside the project folder. 
-Then when promted locate and select the Godot executable that came with the engine.
+Once these are installed/extracted, just open the "project.godot" file located inside the project folder. 
+Then when prompted locate and select the Godot executable that came with the engine.
 
 The project should then launch.
 

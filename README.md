@@ -1,4 +1,4 @@
-# comp330_port
+# comp330/340_Game_Development
 # Student ID: 1506530
 
 ## Project Set-up

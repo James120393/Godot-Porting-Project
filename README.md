@@ -47,4 +47,22 @@ Line.gd
 
 Area.gd
 
+## Controls for the Game:
+
+### Player 1 (Top Player, Addy)
+
+Up, Down, Left, Right  == Movement
+
+Right Shift == Pick-up Object
+
+Enter/Return == Place Object
+
+### Player 2 (Bottom Player, Val)
+
+W, A, S, D == Movement
+
+Q == Pick-up Object
+
+To Place an object as Player 2, the player must move to the desired area just below the counter.
+
 

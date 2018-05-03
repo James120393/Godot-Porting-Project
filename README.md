@@ -3,7 +3,7 @@
 
 ## Project Set-up
 
-To run this project you will need to install the lastest version of Mono and GoDot 3.0.
+To run this project you will need to install the latest version of Mono and GoDot 3.0.
 
 [Mono Project](https://www.mono-project.com/download/stable/)
 
@@ -11,12 +11,12 @@ To run this project you will need to install the lastest version of Mono and GoD
 
 [Link to the Project Repository on GitHub](https://github.com/James120393/Godot-Porting-Project/tree/master)
 
-Once these are isntalled/extracted, just open the "project.godot" file located inside the project folder. 
-Then when promted locate and select the Godot executable that came with the engine.
+Once these are installed/extracted, just open the "project.godot" file located inside the project folder. 
+Then when prompted locate and select the Godot executable that came with the engine.
 
 The project should then launch.
 
-### For my coontribution to the game I added the following:
+### For my contribution to the game I added the following:
 
 The main gameplay loop
 

@@ -1,6 +1,16 @@
 # comp330/340_Game_Development
 # Student ID: 1506530
 
+## If Memory Serves
+
+If memory serves is an open source game created by a group of researchers that attended the ACM Annual Conference of Innovation and Technology in Computer Science Education (ITiCSE 2017). The game revolves around teaching undergraduates pointers and was designed using a learning outcome based approach. This allowed for a game that facilitated educational games development within computer science. 
+
+This project is to port “If memory serves” to an open source games engine (we have chosen Godot) as it is currently being developed on Unity.
+
+
+[If Memory Serves Home Page](http://ifmemoryserves.org/index.html)
+### Note: the home page for the project was not created by us, it was created by the research team involved with the project.
+
 ## Project Set-up
 
 To run this project you will need to install the lastest version of Mono and GoDot 3.0.
@@ -16,36 +26,6 @@ Then when promted locate and select the Godot executable that came with the engi
 
 The project should then launch.
 
-### For my coontribution to the game I added the following:
-
-The main gameplay loop
-
-Constructing of the levels
-
-Porting of art assets
-
-Game controls
-
-Level goals
-
-
-### Of the classes, I created:
-
-Player 1&2.gd
-
-Container.gd
-
-Game.gd
-
-Level Selector.gd
-
-Menu.gd
-
-Text.gd
-
-Line.gd
-
-Area.gd
 
 ## Controls for the Game:
 

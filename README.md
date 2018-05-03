@@ -5,7 +5,7 @@
 
 To run this project you will need to install the lastest version of Mono and GoDot 3.0.
 
-[Mono Project](https://www.mono-project.com)
+[Mono Project](https://www.mono-project.com/download/stable/)
 
 [GoDot 3.0](https://godotengine.org/download/windows)
 

@@ -22,7 +22,7 @@
 [ext_resource path="res://Art/Ui/Buttons/Level_Select.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/Level_Selector.gd" type="Script" id=21]
 
-[node name="Menu" type="Panel"]
+[node name="Menu" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -41,10 +41,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -206.0
-margin_top = -142.0
-margin_right = 1308.0
-margin_bottom = 758.0
+margin_left = -444.0
+margin_top = -263.0
+margin_right = 1546.0
+margin_bottom = 888.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0

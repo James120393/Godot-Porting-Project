@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Reset_Button_hover.png-42f956f414c0ae498fecb3704fe0685b.stex"
+path="res://.import/Reset_Button_Hover.png-ecb6e5333697bac97a3e048f72b75604.stex"
 
 [deps]
 
-source_file="res://Art/Ui/Buttons/Reset_Button_hover.png"
+source_file="res://Art/Ui/Buttons/Reset_Button_Hover.png"
 source_md5="fb4b723375bde4d8adbb0f78a4e00bd6"
 
-dest_files=[ "res://.import/Reset_Button_hover.png-42f956f414c0ae498fecb3704fe0685b.stex" ]
+dest_files=[ "res://.import/Reset_Button_Hover.png-ecb6e5333697bac97a3e048f72b75604.stex" ]
 dest_md5="3314c072f6cc82e80e8f8144e3a6ea97"
 
 [params]
